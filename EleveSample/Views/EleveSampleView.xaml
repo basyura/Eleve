@@ -19,15 +19,39 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
+            <RowDefinition Height="auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Text="{Binding Message}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Button Grid.Row="1" Content="Hello" Width="50" Height="50">
+        <Canvas Background="SeaShell">
             <i:Interaction.Triggers>
-                <i:EventTrigger EventName="Click">
-                    <ev:Execute Action="Hello" />
+                <i:EventTrigger EventName="MouseMove" >
+                    <ev:Execute Action="TrackMouse" Cache="True" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
-        </Button>
+        </Canvas>
+        <TextBlock Grid.Row="1" Text="{Binding Message}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Hello" Width="50" Height="50" Margin="10">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <ev:Execute Action="Hello" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Content="Start" Width="50" Height="50" Margin="10">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <ev:Execute Action="Start" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Content="End" Width="50" Height="50" Margin="10">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <ev:Execute Action="End" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+        </StackPanel>
     </Grid>
 </ev:ViewBase>

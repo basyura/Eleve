@@ -11,6 +11,8 @@ namespace Eleve
     /// </summary>
     public class Execute : TriggerAction<DependencyObject>
     {
+        /// <summary></summary>
+        private IActionCommand _commandCache;
         /// <summary>
         /// 
         /// </summary>
@@ -37,38 +39,35 @@ namespace Eleve
         // Using a DependencyProperty as the backing store for MethodTarget.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ViewModelProperty =
             DependencyProperty.Register("ViewModel", typeof(ViewModelBase), typeof(Execute), new PropertyMetadata(null));
-
         /// <summary>
-        /// 呼び出すメソッドの名前を指定、または取得します。
+        /// Action をキャッシュするか
         /// </summary>
-        public string Action
-        {
-            get { return (string)GetValue(ActionProperty); }
-            set { SetValue(ActionProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for MethodName.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ActionProperty =
-            DependencyProperty.Register("Action", typeof(string), typeof(Execute), new PropertyMetadata(null));
-
-
+        public bool   Cache  { get; set; }
+        /// <summary>
+        /// 呼び出すアクション名を指定、または取得します。
+        /// 1 タグ 1 アクション想定としてひとまず依存関係にはしないでおく
+        /// </summary>
+        public string Action { get; set; }
         /// <summary>
         /// 呼び出すメソッドに渡す引数を指定、または取得します。
         /// </summary>
-        public object MethodParameter
+        public object ActionParameter
         {
-            get { return GetValue(MethodParameterProperty); }
-            set { SetValue(MethodParameterProperty, value); }
+            get { return GetValue(ActionParameterProperty); }
+            set { SetValue(ActionParameterProperty, value); }
         }
-
         // Using a DependencyProperty as the backing store for MethodParameter.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty MethodParameterProperty =
-            DependencyProperty.Register("MethodParameter", typeof(object), typeof(Execute), new PropertyMetadata(null, OnMethodParameterChanged));
-
-        private static void OnMethodParameterChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        public static readonly DependencyProperty ActionParameterProperty =
+            DependencyProperty.Register("MethodParameter", typeof(object), typeof(Execute), new PropertyMetadata(null, OnActionParameterChanged));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void OnActionParameterChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             var thisReference = (Execute)sender;
-            thisReference.MethodParameter = e.NewValue;
+            thisReference.ActionParameter = e.NewValue;
         }
         /// <summary>
         /// 隠しコマンド
@@ -85,6 +84,39 @@ namespace Eleve
         protected override void Invoke(object parameter)
         {
             var total = Stopwatch.StartNew();
+            // 対象コマンドの生成
+            IActionCommand command = null;
+            if (Cache && _commandCache != null)
+            {
+                command = _commandCache;
+            }
+            else
+            {
+                Stopwatch w = Stopwatch.StartNew();
+                command = NewCommand();
+                w.Stop();
+                Console.WriteLine(string.Format("Execute > {0}", w.Elapsed));
+            }
+            // キャッシュ対象の場合
+            if (Cache)
+            {
+                _commandCache = command;
+            }
+            // 実行
+            var atime = Stopwatch.StartNew();
+            // Action 呼び出し
+            command.Execute(AssociatedObject, parameter as EventArgs, ActionParameter);
+
+            atime.Stop();
+            total.Stop();
+            Console.WriteLine(string.Format("Execute > {0} - {1}/{2}", command, atime.Elapsed, total.Elapsed));
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        private IActionCommand NewCommand()
+        {
             // セットされていない場合は Window から取る
             if (ViewModel == null)
             {
@@ -98,7 +130,7 @@ namespace Eleve
             if (ViewModel == null)
             {
                 MessageBox.Show("ViewModel not found");
-                return;
+                return null;
             }
             // 呼び出し対象のクラス名を生成
             Type   vmType = ViewModel.GetType();
@@ -112,30 +144,14 @@ namespace Eleve
             if (type == null)
             {
                 MessageBox.Show(clazz + " not found.");
-                return;
+                return null;
             }
             // インスタンス生成
             IActionCommand action = Activator.CreateInstance(type) as IActionCommand;
             // 初期化
             action.Initialize(ViewModel);
-            // 実行
-            var atime = Stopwatch.StartNew();
-            // 再描画で Initialize が走ったらこまるな
-            if (Action.Equals("Initialize"))
-            {
-                //InitializeTool();
-            }
-            // Initialize で MethodParameter がない場合は InParam を入れ替える
-            //if (MethodParameter == null && ViewModel.InParam != null && Action.Equals("Initialize"))
-            //{
-            //    MethodParameter = ViewModel.InParam;
-            //}
-            // Action 呼び出し
-            action.Execute(AssociatedObject, parameter as EventArgs, MethodParameter);
 
-            atime.Stop();
-            total.Stop();
-            Console.WriteLine(string.Format("Execute > {0} - {1}/{2}", clazz, atime.Elapsed, total.Elapsed));
+            return action;
         }
     }
 }

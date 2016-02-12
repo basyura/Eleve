@@ -36,7 +36,7 @@ namespace Eleve
             Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => {
                 Execute command = new Execute(name) {
                     ViewModel       = this,
-                    MethodParameter = param,
+                    ActionParameter = param,
                 };
                 command.__Invoke__(new EventArgs());
             }));
