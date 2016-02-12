@@ -40,7 +40,7 @@ namespace Eleve
         public static readonly DependencyProperty ViewModelProperty =
             DependencyProperty.Register("ViewModel", typeof(ViewModelBase), typeof(Execute), new PropertyMetadata(null));
         /// <summary>
-        /// Action をキャッシュするか
+        /// Action をキャッシュする
         /// </summary>
         public bool   Cache  { get; set; }
         /// <summary>
@@ -92,10 +92,12 @@ namespace Eleve
             }
             else
             {
-                Stopwatch w = Stopwatch.StartNew();
                 command = NewCommand();
-                w.Stop();
-                Console.WriteLine(string.Format("Execute > {0}", w.Elapsed));
+            }
+            // コマンドがなかった場合は何もしない
+            if (command == null)
+            {
+                return;
             }
             // キャッシュ対象の場合
             if (Cache)
