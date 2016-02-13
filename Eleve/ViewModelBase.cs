@@ -21,7 +21,7 @@ namespace Eleve
         /// <typeparam name="T"></typeparam>
         /// <param name="name"></param>
         /// <returns></returns>
-        public T GetControl<T>(string name)
+        public T GetElement<T>(string name)
         {
             object obj = View.FindName(name);
             return (T)obj;

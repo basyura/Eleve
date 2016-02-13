@@ -41,9 +41,9 @@ namespace Eleve
         /// 
         /// </summary>
         /// <returns></returns>
-        protected T GetControl<T>(string name, Action<T> action = null)
+        protected T GetElement<T>(string name, Action<T> action = null)
         {
-            T control = ViewModel.GetControl<T>(name);
+            T control = ViewModel.GetElement<T>(name);
             if (action != null)
             {
                 action(control);

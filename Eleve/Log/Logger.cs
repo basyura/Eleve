@@ -48,22 +48,31 @@ namespace Eleve.Log
         {
             ILog logger = GetLogger();
             // 出力レベル判定
+            bool isEnabled = false;
             switch (level)
             {
                 case LogLevel.Debug:
-                    if (!logger.IsDebugEnabled) { return; }
+                    isEnabled = logger.IsDebugEnabled;
                     break;
                 case LogLevel.Info:
-                    if (!logger.IsInfoEnabled)  { return; }
+                    isEnabled = logger.IsInfoEnabled;
                     break;
                 case LogLevel.Warn:
-                    if (!logger.IsWarnEnabled)  { return; }
+                    isEnabled = logger.IsWarnEnabled;
                     break;
                 case LogLevel.Error:
-                    if (!logger.IsErrorEnabled) { return; }
+                    isEnabled = logger.IsErrorEnabled;
                     break;
                 default:
                     break;
+            }
+            // 出力対象外
+            if (!isEnabled)
+            {
+#if DEBUG
+                Debug.WriteLine(string.Format(string.Format(message, param)));
+#endif
+                return;
             }
             // 再フォーマット 
             if (param.Length != 0)
