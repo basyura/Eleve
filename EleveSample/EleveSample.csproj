@@ -69,12 +69,14 @@
     <Compile Include="Actions\EleveSample\End.cs" />
     <Compile Include="Actions\EleveSample\Hello.cs" />
     <Compile Include="Actions\EleveSample\Initialize.cs" />
+    <Compile Include="Actions\EleveSample\SelectPerson.cs" />
     <Compile Include="Actions\EleveSample\Start.cs" />
     <Compile Include="Actions\EleveSample\TrackMouse.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\Person.cs" />
     <Compile Include="ViewModels\EleveSampleViewModel.cs" />
     <Compile Include="Views\EleveSampleView.xaml.cs">
       <DependentUpon>EleveSampleView.xaml</DependentUpon>

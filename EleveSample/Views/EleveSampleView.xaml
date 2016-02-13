@@ -19,18 +19,46 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
+            <RowDefinition Height="50" />
             <RowDefinition Height="auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Canvas Background="SeaShell">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <DataGrid ItemsSource="{Binding Persons}" MinWidth="50">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <ev:Execute Action="SelectPerson" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </DataGrid>
+            <Grid Grid.Column="1" Visibility="{Binding PersonVisibility}">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="ID"   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 10 0" />
+                <TextBlock Text="Name" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 10 0" Grid.Row="1" />
+                <TextBlock Text="{Binding SelectedPersonID}"   Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <TextBlock Text="{Binding SelectedPersonName}" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            </Grid>
+        </Grid>
+        <Canvas Grid.Row="1" Background="SeaShell">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseMove" >
                     <ev:Execute Action="TrackMouse" Cache="True" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Canvas>
-        <TextBlock Grid.Row="1" Text="{Binding Message}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+        <TextBlock Grid.Row="2" Text="{Binding Message}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="Hello" Width="50" Height="50" Margin="10">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click">
