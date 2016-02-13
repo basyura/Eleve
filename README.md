@@ -25,5 +25,8 @@ Eleve include Livet's code.
 ## TODO
 
 - Logger
+- DataManager
 - Broken English
 - Is License ok?
+- Template
+- Input Validation
