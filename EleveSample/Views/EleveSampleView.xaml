@@ -28,7 +28,7 @@
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <DataGrid ItemsSource="{Binding Persons}" MinWidth="50">
+            <DataGrid ItemsSource="{Binding Persons}" MinWidth="50" IsReadOnly="True" SelectionUnit="FullRow" SelectionMode="Single">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
                         <ev:Execute Action="SelectPerson" />

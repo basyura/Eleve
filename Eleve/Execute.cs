@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Interactivity;
+using Eleve.Log;
 
 namespace Eleve
 {
@@ -111,7 +112,7 @@ namespace Eleve
 
             atime.Stop();
             total.Stop();
-            Console.WriteLine(string.Format("Execute > {0} - {1}/{2}", command, atime.Elapsed, total.Elapsed));
+            Logger.Info("Execute > {0} - {1}/{2}", command, atime.Elapsed, total.Elapsed);
         }
         /// <summary>
         /// 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
+using Eleve.Log;
 
 namespace Eleve
 {
@@ -66,6 +67,24 @@ namespace Eleve
         {
             // MDB からメッセージを取得する
             return MessageBox.Show("", "", button, icon);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="param"></param>
+        protected void Debug(string message, params object[] param)
+        {
+            Logger.Deubg(message, param);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="param"></param>
+        protected void Info(string message, params object[] param)
+        {
+            Logger.Info(message, param);
         }
     }
 }
