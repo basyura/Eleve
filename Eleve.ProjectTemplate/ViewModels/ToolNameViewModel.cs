@@ -8,7 +8,7 @@ using Eleve.ProjectTemplate.Models;
 
 namespace Eleve.ProjectTemplate.ViewModels
 {
-    public class ProjectNameViewModel : ViewModelBase
+    public class ToolNameViewModel : ViewModelBase
     {
         /// <summary>
         /// 

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Eleve;
 using Eleve.ProjectTemplate.ViewModels;
 
-namespace Eleve.ProjectTemplate.Actions.ProjectName
+namespace Eleve.ProjectTemplate.Actions.ToolName
 {
-    public class ProjectNameActionBase : ActionBase<ProjectNameViewModel>
+    public class ToolNameActionBase : ActionBase<ToolNameViewModel>
     {
     }
 }

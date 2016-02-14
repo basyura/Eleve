@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>Eleve.ItemTemplate</Name>
-    <Description>Eleve.ItemTemplate</Description>
+    <Name>Eleve.ActionTemplate</Name>
+    <Description>Eleve.ActionTemplate</Description>
     <Icon>Eleve.ItemTemplate.ico</Icon>
     <TemplateID>9be59112-9049-4d75-9d4f-fcc4e76c529e</TemplateID>
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
     <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
-    <DefaultName>Class.cs</DefaultName>
+    <DefaultName>Initialize.cs</DefaultName>
   </TemplateData>
   <TemplateContent>
     <References>
@@ -16,6 +16,6 @@
         <Assembly>System</Assembly>
       </Reference>
     </References>
-    <ProjectItem ReplaceParameters="true">Class.cs</ProjectItem>
+    <ProjectItem ReplaceParameters="true">Action.cs</ProjectItem>
   </TemplateContent>
 </VSTemplate>

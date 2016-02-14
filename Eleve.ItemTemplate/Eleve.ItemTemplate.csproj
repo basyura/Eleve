@@ -58,7 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Class.cs" />
+    <None Include="Action.cs" />
     <None Include="Eleve.ItemTemplate.ico" />
   </ItemGroup>
   <ItemGroup>

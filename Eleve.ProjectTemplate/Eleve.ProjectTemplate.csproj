@@ -68,21 +68,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Views\ProjectNameView.xaml">
+    <Page Include="Views\ToolNameView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Actions\ProjectName\Closed.cs" />
-    <Compile Include="Actions\ProjectName\Initialize.cs" />
-    <Compile Include="Actions\ProjectName\ProjectNameActionBase.cs" />
+    <Compile Include="Actions\ToolName\Closed.cs" />
+    <Compile Include="Actions\ToolName\Initialize.cs" />
+    <Compile Include="Actions\ToolName\ProjectNameActionBase.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\SampleMessage.cs" />
-    <Compile Include="ViewModels\ProjectNameViewModel.cs" />
-    <Compile Include="Views\ProjectNameView.xaml.cs">
-      <DependentUpon>ProjectNameView.xaml</DependentUpon>
+    <Compile Include="ViewModels\ToolNameViewModel.cs" />
+    <Compile Include="Views\ToolNameView.xaml.cs">
+      <DependentUpon>ToolNameView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

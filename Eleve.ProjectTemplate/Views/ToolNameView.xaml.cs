@@ -19,9 +19,9 @@ namespace Eleve.ProjectTemplate.Views
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
-    public partial class ProjectNameView : Eleve.ViewBase
+    public partial class ToolNameView : Eleve.ViewBase
     {
-        public ProjectNameView()
+        public ToolNameView()
         {
             InitializeComponent();
         }

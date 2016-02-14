@@ -5,7 +5,10 @@ $endif$using System.Text;
 
 namespace $rootnamespace$
 {
-	class $safeitemrootname$
+	public class $itemname$ : $ToolName$ActionBase
 	{
+        public override void Execute(object sender, EventArgs evnt, object parameter)
+        {
+        }
 	}
 }

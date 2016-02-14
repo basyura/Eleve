@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Eleve;
 
-namespace Eleve.ProjectTemplate.Actions.ProjectName
+namespace Eleve.ProjectTemplate.Actions.ToolName
 {
-    public class Closed : ProjectNameActionBase
+    public class Closed : ToolNameActionBase
     {
         public override void Execute(object sender, EventArgs evnt, object parameter)
         {

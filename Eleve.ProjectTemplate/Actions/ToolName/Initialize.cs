@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Eleve.ProjectTemplate.Models;
 
-namespace Eleve.ProjectTemplate.Actions.ProjectName
+namespace Eleve.ProjectTemplate.Actions.ToolName
 {
-    public class Initialize : ProjectNameActionBase
+    public class Initialize : ToolNameActionBase
     {
         public override void Execute(object sender, EventArgs evnt, object parameter)
         {
