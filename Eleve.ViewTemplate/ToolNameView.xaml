@@ -1,0 +1,12 @@
+﻿<ev:ViewBase x:Class="$rootnamespace$.$safeitemname$"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ev="clr-namespace:Eleve;assembly=Eleve"
+        xmlns:vm="clr-namespace:$rootnamespace$.ViewModels"
+        Title="ProjectName" Height="350" Width="525">
+    
+    <ev:ViewBase.DataContext>
+        <vm:$ToolName$ViewModel />
+    </ev:ViewBase.DataContext>
+</ev:ViewBase>

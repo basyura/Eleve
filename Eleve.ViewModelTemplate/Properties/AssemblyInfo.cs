@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Eleve.ItemTemplate")]
+[assembly: AssemblyTitle("Eleve.ViewModelTemplate")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Eleve.ItemTemplate")]
+[assembly: AssemblyProduct("Eleve.ViewModelTemplate")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("14354111-3e60-4f38-ba40-909e360a5431")]
+[assembly: Guid("918073be-870c-411e-8470-a7d83b13d78f")]
 
 // Version information for an assembly consists of the following four values:
 //

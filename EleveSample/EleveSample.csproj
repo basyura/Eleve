@@ -66,7 +66,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="Actions\EleveSample\Compute.cs" />
-    <Compile Include="Actions\EleveSample\Eleve.ActionTemplate1.cs" />
     <Compile Include="Actions\EleveSample\EleveSampleActionBase.cs" />
     <Compile Include="Actions\EleveSample\End.cs" />
     <Compile Include="Actions\EleveSample\Hello.cs" />
