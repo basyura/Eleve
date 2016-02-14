@@ -1,0 +1,25 @@
+﻿<ev:ViewBase x:Class="Eleve.ProjectTemplate.Views.ProjectNameView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ev="clr-namespace:Eleve;assembly=Eleve"
+        xmlns:vm="clr-namespace:Eleve.ProjectTemplate.ViewModels"
+        Title="ProjectName" Height="350" Width="525">
+    
+    <ev:ViewBase.DataContext>
+        <vm:ProjectNameViewModel />
+    </ev:ViewBase.DataContext>
+    
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="ContentRendered">
+            <ev:Execute Action="Initialize" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Closed">
+            <ev:Execute Action="Closed" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
+    <Grid>
+        <TextBlock Text="{Binding SampleMessage.Message}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    </Grid>
+</ev:ViewBase>
