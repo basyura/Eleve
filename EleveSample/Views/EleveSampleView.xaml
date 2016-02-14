@@ -54,7 +54,7 @@
         <Canvas Grid.Row="1" Background="SeaShell">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseMove" >
-                    <ev:Execute Action="TrackMouse" Cache="True" />
+                    <ev:Execute Action="TrackMouse" Cache="True" LogLevel="Debug" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Canvas>

@@ -1,6 +1,6 @@
-﻿using System.IO;
+﻿using System.Diagnostics;
+using System.IO;
 using System.Reflection;
-using System.Diagnostics;
 using log4net;
 using log4net.Config;
 
@@ -44,7 +44,7 @@ namespace Eleve.Log
         /// <param name="level"></param>
         /// <param name="message"></param>
         /// <param name="param"></param>
-        private static void Log(LogLevel level, string message, params object[] param)
+        internal static void Log(LogLevel level, string message, params object[] param)
         {
             ILog logger = GetLogger();
             // 出力レベル判定
@@ -70,7 +70,7 @@ namespace Eleve.Log
             if (!isEnabled)
             {
 #if DEBUG
-                Debug.WriteLine(string.Format(string.Format(message, param)));
+                Debug.WriteLine(string.Format(message, param));
 #endif
                 return;
             }

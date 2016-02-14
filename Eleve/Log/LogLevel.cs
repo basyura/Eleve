@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Eleve.Log
 {
-    internal enum LogLevel
+    public enum LogLevel
     {
         Debug = 0,
         Info  = 1,

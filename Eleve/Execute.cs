@@ -71,6 +71,15 @@ namespace Eleve
             thisReference.ActionParameter = e.NewValue;
         }
         /// <summary>
+        /// 
+        /// </summary>
+        private LogLevel _LogLevel = LogLevel.Info;
+        public LogLevel LogLevel
+        {
+            get { return _LogLevel; }
+            set { _LogLevel = value; }
+        }
+        /// <summary>
         /// 隠しコマンド
         /// </summary>
         /// <param name="parameter"></param>
@@ -112,7 +121,7 @@ namespace Eleve
 
             atime.Stop();
             total.Stop();
-            Logger.Info("Execute > {0} - {1}/{2}", command, atime.Elapsed, total.Elapsed);
+            Logger.Log(LogLevel, "Execute > {0} - {1}/{2}", command, atime.Elapsed.TotalMilliseconds, total.Elapsed.TotalMilliseconds);
         }
         /// <summary>
         /// 
