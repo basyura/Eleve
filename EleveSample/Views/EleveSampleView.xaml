@@ -83,7 +83,7 @@
             </Button>
         </StackPanel>
         <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="10">
-            <TextBox Name="ComputeA" Width="60" >
+            <TextBox Name="ComputeA" Width="60" TextAlignment="Right" >
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="TextChanged">
                         <ev:Execute Action="Compute" Cache="True" />
@@ -91,7 +91,7 @@
                 </i:Interaction.Triggers>
             </TextBox>
             <TextBlock Text="+" Margin="5 0 5 0" />
-            <TextBox Name="ComputeB" Width="60" >
+            <TextBox Name="ComputeB" Width="60" TextAlignment="Right" >
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="TextChanged">
                         <ev:Execute Action="Compute" Cache="True" />
@@ -100,7 +100,7 @@
             </TextBox>
             <TextBlock Text="=" Margin="5 0 5 0" />
             <Border BorderBrush="Gray" BorderThickness="0.7" Width="60">
-                <TextBlock Name="ComputeResult"  />
+                <TextBlock Name="ComputeResult" VerticalAlignment="Center" TextAlignment="Right" />
             </Border>
         </StackPanel>
     </Grid>
