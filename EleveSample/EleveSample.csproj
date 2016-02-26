@@ -61,6 +61,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Actions\EleveSample\OpenItemSelector.cs" />
+    <Compile Include="Actions\ItemSelector\Initialize.cs" />
+    <Compile Include="Actions\ItemSelector\ItemSelectorActionBase.cs" />
+    <Compile Include="Actions\ItemSelector\Notify.cs" />
+    <Compile Include="Views\ItemSelectorView.xaml.cs">
+      <DependentUpon>ItemSelectorView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\EleveSampleView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -79,10 +86,15 @@
     </Compile>
     <Compile Include="Models\Person.cs" />
     <Compile Include="ViewModels\EleveSampleViewModel.cs" />
+    <Compile Include="ViewModels\ItemSelectorViewModel.cs" />
     <Compile Include="Views\EleveSampleView.xaml.cs">
       <DependentUpon>EleveSampleView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\ItemSelectorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

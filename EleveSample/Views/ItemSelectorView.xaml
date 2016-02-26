@@ -1,0 +1,27 @@
+﻿<ev:ViewBase x:Class="EleveSample.Views.ItemSelectorView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ev="clr-namespace:Eleve;assembly=Eleve"
+        xmlns:vm="clr-namespace:EleveSample.ViewModels"
+        Title="ProjectName" Height="200" Width="300">
+    
+    <ev:ViewBase.DataContext>
+        <vm:ItemSelectorViewModel />
+    </ev:ViewBase.DataContext>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition /> 
+            <RowDefinition /> 
+        </Grid.RowDefinitions>
+        <TextBox Text="{Binding ID}" TextAlignment="Center"  VerticalAlignment="Center" Width="200"/>
+        <Button Grid.Row="1" Content="Notify" Height="50" Width="50" >
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click" >
+                    <ev:Execute Action="Notify" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+    </Grid>
+</ev:ViewBase>

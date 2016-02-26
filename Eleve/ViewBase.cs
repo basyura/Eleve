@@ -14,7 +14,7 @@ namespace Eleve
         /// </summary>
         public override void OnApplyTemplate()
         {
-            ((ViewModelBase)this.DataContext).View = this;
+            ((ViewModelBase)this.DataContext).Initialize(this);
             base.OnApplyTemplate();
         }
     }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Threading;
-using System.Xml.Serialization;
 
 namespace Eleve
 {
@@ -15,6 +14,18 @@ namespace Eleve
         private bool _disposed;
         /// <summary></summary>
         public Window   View { get; set; }
+        /// <summary></summary>
+        internal Action<WindowCloseType, object> CloseWindowAction { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="view"></param>
+        /// <param name="IsTool"></param>
+        internal void Initialize(ViewBase view)
+        {
+            View = view;
+            View.Closed += view_Closed;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -42,6 +53,22 @@ namespace Eleve
             }));
         }
         /// <summary>
+        /// ウインドウ起動時に x ボタンを押された場合はここが呼ばれる
+        /// ActionBase#CloseWindow → view_Closed の順に呼ばれる
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void view_Closed(object sender, EventArgs e)
+        {
+            View.Closed -= view_Closed;
+            // 明示的に ActionBase#CloseWindow した場合は null クリアされる
+            if (CloseWindowAction != null)
+            {
+                CloseWindowAction(WindowCloseType.Close , null);
+            }
+            Dispose();
+        }
+        /// <summary>
         /// このインスタンスによって使用されているすべてのリソースを解放します。
         /// </summary>
         public void Dispose()
@@ -58,6 +85,8 @@ namespace Eleve
             if (_disposed) return;
             if (disposing)
             {
+                View = null;
+                CloseWindowAction = null;
             }
             _disposed = true;
         }

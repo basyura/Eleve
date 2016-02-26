@@ -26,7 +26,7 @@ namespace Eleve
         /// <summary>
         /// 
         /// </summary>
-        public virtual void Execute(object sender, EventArgs evnt, object parameter)
+        public virtual void Execute(object sender, EventArgs e, object obj)
         {
         }
         /// <summary>
@@ -59,16 +59,67 @@ namespace Eleve
             ViewModel.ExecuteCommand(name, param);
         }
         /// <summary>
+        /// <summary>
         /// 
         /// </summary>
-        /// <param name="messageId"></param>
-        /// <returns></returns>
-        protected MessageBoxResult ShowMessage(string messageId, MessageBoxButton button, MessageBoxImage icon)
+        /// <typeparam name="T"></typeparam>
+        protected void OpenDialogWindow<T>(object parameter = null, Action<WindowCloseType, object> callBack = null) where T : ViewBase, new()
         {
-            // MDB からメッセージを取得する
-            return MessageBox.Show("", "", button, icon);
+            OpenWindow<T>(parameter, callBack, true);
         }
         /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="parameter"></param>
+        /// <param name="callBack"></param>
+        protected void OpenWindow<T>(object parameter = null, Action<WindowCloseType, object> callBack = null) where T : ViewBase, new()
+        {
+            OpenWindow<T>(parameter, callBack, false);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="parameter"></param>
+        /// <param name="callBack"></param>
+        private void OpenWindow<T>(object parameter, Action<WindowCloseType, object> callBack, bool isDialog) where T : ViewBase, new()
+        {
+            T view = new T();
+
+            ViewModelBase vm = ((ViewModelBase)view.DataContext);
+
+            vm.CloseWindowAction = callBack;
+            // 呼び出し
+            vm.ExecuteCommand("Initialize", parameter);
+            // 表示
+            if (isDialog)
+            {
+                view.ShowDialog();
+            }
+            else
+            {
+                view.Show();
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        protected void CloseWindow(WindowCloseType type, object param = null)
+        {
+            // 非表示にしたほうが速く感じる？
+            ViewModel.View.Visibility = Visibility.Collapsed;
+
+            BeginInvoke(() =>
+            {
+                if (ViewModel.CloseWindowAction != null)
+                {
+                    ViewModel.CloseWindowAction(type, param);
+                    ViewModel.CloseWindowAction = null;
+                }
+                ViewModel.View.Close();
+            });
+        }
         /// 
         /// </summary>
         /// <param name="message"></param>
