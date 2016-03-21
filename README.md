@@ -33,7 +33,6 @@ EleveSample
 │   └── Person.cs
 ├── ViewModels
 │   ├── EleveSampleViewModel.cs
-│   ├── EleveSampleViewModel.cs~
 │   └── ItemSelectorViewModel.cs
 └── Views
     ├── EleveSampleView.xaml
@@ -44,7 +43,7 @@ EleveSample
 
 ## How to call Action
 
-```
+```xml
 <Button Content="Open">
   <i:Interaction.Triggers>
     <i:EventTrigger EventName="Click">
