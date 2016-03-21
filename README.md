@@ -14,6 +14,47 @@ Livet is a very powerful MVVM Infrastructure for WPF
 - http://ugaya40.hateblo.jp/entry/livet
 - https://github.com/ugaya40/Livet
 
+
+## Files
+
+
+```
+EleveSample
+├── Actions
+│   ├── EleveSample
+│   │   ├── EleveSampleActionBase.cs
+│   │   ├── Initialize.cs
+│   │   └── OpenItemSelector.cs
+│   └── ItemSelector
+│       ├── Initialize.cs
+│       ├── ItemSelectorActionBase.cs
+│       └── Notify.cs
+├── Models
+│   └── Person.cs
+├── ViewModels
+│   ├── EleveSampleViewModel.cs
+│   ├── EleveSampleViewModel.cs~
+│   └── ItemSelectorViewModel.cs
+└── Views
+    ├── EleveSampleView.xaml
+    ├── EleveSampleView.xaml.cs
+    ├── ItemSelectorView.xaml
+    └── ItemSelectorView.xaml.cs
+```
+
+## How to call Action
+
+```
+<Button Content="Open">
+  <i:Interaction.Triggers>
+    <i:EventTrigger EventName="Click">
+      <ev:Execute Action="OpenItemSelector" />
+    </i:EventTrigger>
+  </i:Interaction.Triggers>
+</Button>
+```
+
+
 ## License
 
 - [zlib/libpng](https://opensource.org/licenses/zlib-license.php) 
