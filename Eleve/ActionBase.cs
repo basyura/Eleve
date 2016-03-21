@@ -85,7 +85,10 @@ namespace Eleve
         /// <param name="callBack"></param>
         private void OpenWindow<T>(object parameter, Action<WindowCloseType, object> callBack, bool isDialog) where T : ViewBase, new()
         {
-            T view = new T();
+            T view = new T()
+            {
+                Owner = ViewModel.View
+            };
 
             ViewModelBase vm = ((ViewModelBase)view.DataContext);
 
