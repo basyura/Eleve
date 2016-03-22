@@ -2,9 +2,11 @@
 
 Livet Based OreOre Framework
 
+(参考にして自分でアプリケーションが作りやすそうなフレームワークを作ってみましたの意)
+
 ## Description
 
-MVVM is so great. But so difficult and complex to build application.
+MVVM is so great. But so difficult and complex to build application.  
 Eleve is WPF Framwork not fussy about MVVM.
 
 ## Livet
