@@ -41,7 +41,7 @@ EleveSample
     └── ItemSelectorView.xaml.cs
 ```
 
-## How to call Action
+## Call Action
 
 ```xml
 <Button Content="Open">
@@ -51,6 +51,24 @@ EleveSample
     </i:EventTrigger>
   </i:Interaction.Triggers>
 </Button>
+```
+
+## Open Window
+
+Open ItemSelectorView with param and callback.
+
+```xml
+OpenDialogWindow<ItemSelectorView>(param, (type, ret) => {
+  ViewModel.Message = type.ToString() + " - " + ret;
+});
+ 
+```
+
+Close ItemSlectorView and notify param.
+
+
+```xml
+CloseWindow(WindowCloseType.OK, ViewModel.ID);
 ```
 
 
