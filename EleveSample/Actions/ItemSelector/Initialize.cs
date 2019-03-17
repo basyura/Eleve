@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using Eleve;
 
 namespace EleveSample.Actions.ItemSelector
 {
     public class Initialize : ItemSelectorActionBase
     {
-        public override void Execute(object sender, EventArgs e, object obj)
+        public override Task<ActionResult> Execute(object sender, EventArgs e, object obj)
         {
             ViewModel.ID = ((Dictionary<string, object>)obj)["ID"] as string;
+
+            return SuccessTask;
         }
     }
 }

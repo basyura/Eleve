@@ -56,6 +56,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionBase.cs" />
+    <Compile Include="ActionResult.cs" />
+    <Compile Include="ActionStatus.cs" />
     <Compile Include="Execute.cs" />
     <Compile Include="EventArgsFactory.cs" />
     <Compile Include="IActionCommand.cs" />

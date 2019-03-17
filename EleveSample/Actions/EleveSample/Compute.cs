@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Controls;
+using Eleve;
 
 namespace EleveSample.Actions.EleveSample
 {
@@ -11,22 +13,23 @@ namespace EleveSample.Actions.EleveSample
         /// <param name="sender"></param>
         /// <param name="evnt"></param>
         /// <param name="parameter"></param>
-        public override void Execute(object sender, EventArgs evnt, object parameter)
+        public override Task<ActionResult> Execute(object sender, EventArgs evnt, object parameter)
         {
-            decimal arga;
-            if (!decimal.TryParse(GetElement<TextBox>("ComputeA").Text, out arga))
+            if (!decimal.TryParse(GetElement<TextBox>("ComputeA").Text, out decimal arga))
             {
-                return;
+                return SuccessTask;
             }
-            decimal argb;
-            if (!decimal.TryParse(GetElement<TextBox>("ComputeB").Text, out argb))
+
+            if (!decimal.TryParse(GetElement<TextBox>("ComputeB").Text, out decimal argb))
             {
-                return;
+                return SuccessTask;
             }
 
             GetElement<TextBlock>("ComputeResult", (ele) => {
                 ele.Text = (arga + argb).ToString();
             });
+
+            return SuccessTask;
         } 
     }
 }

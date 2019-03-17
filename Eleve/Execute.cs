@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interactivity;
 using Eleve.Log;
@@ -93,6 +94,22 @@ namespace Eleve
         /// <param name="parameter"></param>
         protected override void Invoke(object parameter)
         {
+            InvokeAsync(parameter).ContinueWith(v =>
+            {
+                if (v.Status == TaskStatus.Faulted)
+                {
+                    Exception ex = v.Exception.InnerException;
+                    // todo
+                    MessageBox.Show(ex.Message);
+                }
+            });
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parameter"></param>
+        private async Task InvokeAsync(object parameter)
+        {
             var total = Stopwatch.StartNew();
             // 対象コマンドの生成
             IActionCommand command = null;
@@ -114,14 +131,21 @@ namespace Eleve
             {
                 _commandCache = command;
             }
+
             // 実行
             var atime = Stopwatch.StartNew();
             // Action 呼び出し
-            command.Execute(AssociatedObject, parameter as EventArgs, ActionParameter);
+            try
+            {
+                ActionResult result = await command.Execute(AssociatedObject, parameter as EventArgs, ActionParameter);
+            }
+            finally
+            {
+                atime.Stop();
+                total.Stop();
+                Logger.Log(LogLevel, "Execute > {0} - {1}/{2}", command, atime.Elapsed.TotalMilliseconds, total.Elapsed.TotalMilliseconds);
+            }
 
-            atime.Stop();
-            total.Stop();
-            Logger.Log(LogLevel, "Execute > {0} - {1}/{2}", command, atime.Elapsed.TotalMilliseconds, total.Elapsed.TotalMilliseconds);
         }
         /// <summary>
         /// 

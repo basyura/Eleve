@@ -2,15 +2,13 @@
 using System.Threading.Tasks;
 using Eleve;
 
-namespace EleveSample.Actions.ItemSelector
+namespace EleveSample.Actions.EleveSample
 {
-    public class Notify : ItemSelectorActionBase
+    public class Error : EleveSampleActionBase
     {
         public override Task<ActionResult> Execute(object sender, EventArgs e, object obj)
         {
-            CloseWindow(WindowCloseType.OK, ViewModel.ID);
-
-            return SuccessTask;
+            throw new Exception("Sample Error");
         }
     }
 }

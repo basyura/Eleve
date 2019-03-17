@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Input;
 using Eleve.Log;
 
 namespace Eleve
@@ -26,8 +24,23 @@ namespace Eleve
         /// <summary>
         /// 
         /// </summary>
-        public virtual void Execute(object sender, EventArgs e, object obj)
+        public virtual Task<ActionResult> Execute(object sender, EventArgs e, object obj)
         {
+            return SuccessTask;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        protected Task<ActionResult> SuccessTask
+        {
+            get {  return Task.Run(() => new ActionResult(ActionStatus.Success)); }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        protected ActionResult Success
+        {
+            get {  return new ActionResult(ActionStatus.Success); }
         }
         /// <summary>
         /// 

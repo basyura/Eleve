@@ -1,17 +1,25 @@
 ﻿using System;
-using System.Windows;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using Eleve;
 
 namespace EleveSample.Actions.EleveSample
 {
     public class Hello : EleveSampleActionBase
     {
-        public override void Execute(object sender, EventArgs evnt, object parameter)
+        public async override Task<ActionResult> Execute(object sender, EventArgs evnt, object parameter)
         {
-            ViewModel.Message = "World";
+            ViewModel.Message = "Hello";
+
+            await Task.Run(() => {
+
+                System.Threading.Thread.Sleep(3000);
+                ViewModel.Message += " Wait";
+
+            });
+
+            ViewModel.Message += " World";
+
+            return Success;
         }
     }
 }

@@ -61,6 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Actions\EleveSample\Error.cs" />
     <Compile Include="Actions\EleveSample\OpenItemSelector.cs" />
     <Compile Include="Actions\ItemSelector\Initialize.cs" />
     <Compile Include="Actions\ItemSelector\ItemSelectorActionBase.cs" />
