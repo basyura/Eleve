@@ -1,16 +1,15 @@
 ﻿using System;
-using System.Threading.Tasks;
-using System.Linq;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using EleveSample.Models;
+using System.Linq;
+using System.Threading.Tasks;
 using Eleve;
+using EleveSample.Models;
 
 namespace EleveSample.Actions.EleveSample
 {
     public class Initialize : EleveSampleActionBase
     {
-        public async override Task<ActionResult> Execute(object sender, EventArgs evnt, object parameter)
+        public override Task<ActionResult> Execute(object sender, EventArgs evnt, object parameter)
         {
             ViewModel.Message = "Initialized";
 
@@ -22,7 +21,7 @@ namespace EleveSample.Actions.EleveSample
                 };
             }));
 
-            return await SuccessTask;
+            return SuccessTask;
         }
     }
 }

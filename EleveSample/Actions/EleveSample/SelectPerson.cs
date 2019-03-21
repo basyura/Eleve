@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using EleveSample.Models;
 using Eleve;
+using EleveSample.Models;
 
 namespace EleveSample.Actions.EleveSample
 {
