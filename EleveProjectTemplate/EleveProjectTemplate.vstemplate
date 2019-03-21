@@ -15,8 +15,9 @@
   <TemplateContent>
     <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$Class1.cs">Class1.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="ViewModels\$safeprojectname$ViewModel.cs" >SampleViewModel.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="Actions\$safeprojectname$\Initialize.cs" >Initialize.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="Actions\$safeprojectname$\$safeprojectname$ActionBase.cs" >SampleActionBase.cs</ProjectItem>
     </Project>
   </TemplateContent>
 </VSTemplate>

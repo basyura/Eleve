@@ -40,8 +40,9 @@
 		<Reference Include="System.Xml"/>
 	</ItemGroup>
 	<ItemGroup>
-		<Compile Include="$safeprojectname$Class1.cs" />
 		<Compile Include="ViewModels\$safeprojectname$ViewModel.cs" />
+		<Compile Include="Actions\$safeprojectname$\Initialize.cs" />
+		<Compile Include="Actions\$safeprojectname$\$safeprojectname$ActionBase.cs" />
 		<Compile Include="Properties\AssemblyInfo.cs" />
 	</ItemGroup>
 	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
