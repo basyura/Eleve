@@ -44,6 +44,14 @@
 		<Compile Include="Actions\$safeprojectname$\Initialize.cs" />
 		<Compile Include="Actions\$safeprojectname$\$safeprojectname$ActionBase.cs" />
 		<Compile Include="Properties\AssemblyInfo.cs" />
+    <Page Include="Views\$safeprojectname$View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+		<Compile Include="Views\$safeprojectname$View.xaml.cs" >
+      <DependentUpon>$safeprojectname$View.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
 	</ItemGroup>
 	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

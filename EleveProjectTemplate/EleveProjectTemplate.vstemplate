@@ -15,9 +15,17 @@
   <TemplateContent>
     <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="ViewModels\$safeprojectname$ViewModel.cs" >SampleViewModel.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="Actions\$safeprojectname$\Initialize.cs" >Initialize.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="Actions\$safeprojectname$\$safeprojectname$ActionBase.cs" >SampleActionBase.cs</ProjectItem>
+      <Folder Name="Actions" TargetFolderName="Actions">
+        <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$\Initialize.cs" >Initialize.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$\$safeprojectname$ActionBase.cs" >SampleActionBase.cs</ProjectItem>
+      </Folder>
+      <Folder Name="ViewModels" TargetFolderName="ViewModels">
+        <ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$ViewModel.cs" >SampleViewModel.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Views" TargetFolderName="Views">
+        <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$View.xaml.cs" >SampleView.xaml.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$View.xaml">SampleView.xaml.cs</ProjectItem>
+      </Folder>
     </Project>
   </TemplateContent>
 </VSTemplate>
