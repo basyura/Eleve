@@ -1,8 +1,6 @@
 ﻿using System.Diagnostics;
 using System.IO;
 using System.Reflection;
-using log4net;
-using log4net.Config;
 
 namespace Eleve.Log
 {
@@ -13,12 +11,6 @@ namespace Eleve.Log
         /// </summary>
         static Logger()
         {
-            string dir  = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string path = Path.Combine(dir, "log4net.config");
-            if (File.Exists(path))
-            {
-                XmlConfigurator.Configure(new FileInfo(path));
-            }
         }
         /// <summary>
         /// 
@@ -46,7 +38,7 @@ namespace Eleve.Log
         /// <param name="param"></param>
         internal static void Log(LogLevel level, string message, params object[] param)
         {
-            ILog logger = GetLogger();
+            /*
             // 出力レベル判定
             bool isEnabled = false;
             switch (level)
@@ -75,10 +67,12 @@ namespace Eleve.Log
                 return;
             }
             // 再フォーマット 
+            */
             if (param.Length != 0)
             {
                 message = string.Format(string.Format(message, param));
             }
+            /*
             // コンソールに出したいがためにフォーマットしてからの再度の出力判定
             switch (level)
             {
@@ -97,20 +91,8 @@ namespace Eleve.Log
                 default:
                     break;
             }
-            // 
+            */
             Debug.WriteLine(message);
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        private static ILog GetLogger()
-        {
-#if DEBUG
-            return LogManager.GetLogger("development.log");
-#else
-            return LogManager.GetLogger("production.log");
-#endif
         }
     }
 }
