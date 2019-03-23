@@ -1,13 +1,13 @@
-﻿<ev:ViewBase x:Class="Sample.SampleView"
+﻿<ev:ViewBase x:Class="$safeprojectname$.$safeprojectname$View"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:ev="clr-namespace:Eleve;assembly=Eleve"
-        xmlns:vm="clr-namespace:Sample.ViewModels"
+        xmlns:vm="clr-namespace:$safeprojectname$.ViewModels"
         Title="MainWindow" Height="350" Width="525">
     
     <ev:ViewBase.DataContext>
-        <vm:SampleViewModel />
+        <vm:$safeprojectname$ViewModel />
     </ev:ViewBase.DataContext>
     
     <i:Interaction.Triggers>

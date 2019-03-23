@@ -72,11 +72,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AssemblyInfo.cs" />
-    <None Include="ProjectTemplate.csproj" />
+    <None Include="ProjectTemplate.csproj">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="EleveProjectTemplate.ico" />
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="EleveProjectTemplate.vstemplate" />
+    <VSTemplate Include="EleveProjectTemplate.vstemplate">
+      <SubType>Designer</SubType>
+    </VSTemplate>
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\SampleView.xaml">

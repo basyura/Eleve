@@ -24,7 +24,7 @@
       </Folder>
       <Folder Name="Views" TargetFolderName="Views">
         <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$View.xaml.cs" >SampleView.xaml.cs</ProjectItem>
-        <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$View.xaml">SampleView.xaml.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$View.xaml">SampleView.xaml</ProjectItem>
       </Folder>
     </Project>
   </TemplateContent>

@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EleveSample
+namespace $safeprojectname$
 {
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
-    public partial class EleveSampleView : Eleve.ViewBase
+    public partial class $safeprojectname$View : Eleve.ViewBase
     {
-        public EleveSampleView()
+        public $safeprojectname$View()
         {
             InitializeComponent();
         }
