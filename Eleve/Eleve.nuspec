@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Eleve</id>
+    <version>0.1</version>
+    <title>Eleve</title>
+    <authors>basyura</authors>
+    <owners>basyura</owners>
+    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
+    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
+    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Ore Ore MVVM Framework</description>
+    <releaseNotes>beta version</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>MVVM WPF</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="PresentationCore" />
+      <frameworkAssembly assemblyName="PresentationFramework" />
+      <frameworkAssembly assemblyName="System" />
+      <frameworkAssembly assemblyName="System.Core" />
+      <frameworkAssembly assemblyName="System.Xaml" />
+      <frameworkAssembly assemblyName="WindowsBase" />
+      <frameworkAssembly assemblyName="Microsoft.Expression.Interactions" />
+      <frameworkAssembly assemblyName="System.Windows.Interactivity" />
+    </frameworkAssemblies>
+  </metadata>
+</package>
