@@ -8,7 +8,7 @@ using Eleve;
 
 namespace EleveSample.Actions.EleveSample
 {
-    public class EleveSampleActionBase : ActionBase<EleveSampleViewModel>
+    public abstract class EleveSampleActionBase : ActionBase<EleveSampleViewModel>
     {
     }
 }

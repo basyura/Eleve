@@ -8,7 +8,7 @@ using Eleve;
 
 namespace EleveSample.Actions.ItemSelector
 {
-    public class ItemSelectorActionBase : ActionBase<ItemSelectorViewModel>
+    public abstract class ItemSelectorActionBase : ActionBase<ItemSelectorViewModel>
     {
     }
 }

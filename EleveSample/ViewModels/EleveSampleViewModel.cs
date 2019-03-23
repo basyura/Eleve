@@ -7,9 +7,9 @@ namespace EleveSample.ViewModels
 {
     public class EleveSampleViewModel : ViewModelBase
     {
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <summary></summary>
+        public bool IsTerminating = false;
+        /// <summary></summary>
         public volatile int Counter = 0;
         /// <summary>
         /// 

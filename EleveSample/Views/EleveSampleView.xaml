@@ -14,6 +14,9 @@
         <i:EventTrigger EventName="ContentRendered">
             <ev:Execute Action="Initialize" />
         </i:EventTrigger>
+        <i:EventTrigger EventName="Closing">
+            <ev:Execute Action="Closing" />
+        </i:EventTrigger>
     </i:Interaction.Triggers>
     
     <Grid>

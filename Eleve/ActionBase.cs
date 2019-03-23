@@ -24,10 +24,7 @@ namespace Eleve
         /// <summary>
         /// 
         /// </summary>
-        public virtual Task<ActionResult> Execute(object sender, EventArgs e, object obj)
-        {
-            return SuccessTask;
-        }
+        public abstract Task<ActionResult> Execute(object sender, EventArgs e, object obj);
         /// <summary>
         /// 
         /// </summary>
