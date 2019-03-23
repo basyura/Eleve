@@ -70,6 +70,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
     <None Include="Views\SampleView.xaml.cs">
       <DependentUpon>SampleView.xaml</DependentUpon>
     </None>
