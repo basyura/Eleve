@@ -14,6 +14,8 @@
   </TemplateData>
   <TemplateContent>
     <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml">App.xaml</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml.cs">App.xaml.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       <Folder Name="Actions" TargetFolderName="Actions">
         <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$\Initialize.cs" >Initialize.cs</ProjectItem>
@@ -26,6 +28,7 @@
         <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$View.xaml.cs" >SampleView.xaml.cs</ProjectItem>
         <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$View.xaml">SampleView.xaml</ProjectItem>
       </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="App.config">App.config</ProjectItem>
     </Project>
   </TemplateContent>
 </VSTemplate>

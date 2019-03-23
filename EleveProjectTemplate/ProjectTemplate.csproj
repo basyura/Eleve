@@ -6,12 +6,13 @@
 		<ProductVersion>8.0.30703</ProductVersion>
 		<SchemaVersion>2.0</SchemaVersion>
 		<ProjectGuid>$guid1$</ProjectGuid>
-		<OutputType>Library</OutputType>
+		<OutputType>WinExe</OutputType>
 		<AppDesignerFolder>Properties</AppDesignerFolder>
 		<RootNamespace>$safeprojectname$</RootNamespace>
 		<AssemblyName>$safeprojectname$</AssemblyName>
 		<TargetFrameworkVersion>v$targetframeworkversion$</TargetFrameworkVersion>
 		<FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 		<DebugSymbols>true</DebugSymbols>
@@ -44,6 +45,10 @@
     <Reference Include="PresentationFramework" />
 	</ItemGroup>
 	<ItemGroup>
+    <None Include="App.config" />
+    <None Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </None>
 		<Compile Include="ViewModels\$safeprojectname$ViewModel.cs" />
 		<Compile Include="Actions\$safeprojectname$\Initialize.cs" />
 		<Compile Include="Actions\$safeprojectname$\$safeprojectname$ActionBase.cs" />
@@ -56,6 +61,10 @@
       <DependentUpon>$safeprojectname$View.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
 	</ItemGroup>
 	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
