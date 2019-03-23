@@ -50,8 +50,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </None>
 		<Compile Include="ViewModels\$safeprojectname$ViewModel.cs" />
-		<Compile Include="Actions\$safeprojectname$\Initialize.cs" />
 		<Compile Include="Actions\$safeprojectname$\$safeprojectname$ActionBase.cs" />
+		<Compile Include="Actions\$safeprojectname$\Initialize.cs" />
+		<Compile Include="Actions\$safeprojectname$\Hello.cs" />
 		<Compile Include="Properties\AssemblyInfo.cs" />
     <Page Include="Views\$safeprojectname$View.xaml">
       <Generator>MSBuild:Compile</Generator>

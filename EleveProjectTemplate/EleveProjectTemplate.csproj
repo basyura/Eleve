@@ -65,6 +65,7 @@
     <None Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </None>
+    <None Include="Actions\Hello.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="App.config">
       <SubType>Designer</SubType>

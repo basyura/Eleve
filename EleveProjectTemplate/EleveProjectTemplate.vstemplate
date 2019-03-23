@@ -18,8 +18,9 @@
       <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml.cs">App.xaml.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       <Folder Name="Actions" TargetFolderName="Actions">
-        <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$\Initialize.cs" >Initialize.cs</ProjectItem>
         <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$\$safeprojectname$ActionBase.cs" >SampleActionBase.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$\Initialize.cs" >Initialize.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$\Hello.cs" >Hello.cs</ProjectItem>
       </Folder>
       <Folder Name="ViewModels" TargetFolderName="ViewModels">
         <ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$ViewModel.cs" >SampleViewModel.cs</ProjectItem>

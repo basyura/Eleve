@@ -8,7 +8,7 @@ using Eleve;
 
 namespace $safeprojectname$.Actions.$safeprojectname$
 {
-    public class $safeprojectname$ActionBase : ActionBase<$safeprojectname$ViewModel>
+    public abstract class $safeprojectname$ActionBase : ActionBase<$safeprojectname$ViewModel>
     {
     }
 }
