@@ -16,6 +16,11 @@ Livet is a very powerful MVVM Infrastructure for WPF
 - http://ugaya40.hateblo.jp/entry/livet
 - https://github.com/ugaya40/Livet
 
+## Install
+
+ProjectTemplate
+
+- https://marketplace.visualstudio.com/items?itemName=basyura.EleveExtensibility
 
 ## Files
 
@@ -44,6 +49,8 @@ EleveSample
 ```
 
 ## Call Action
+
+Determined by ViewModel's name, namespace and Action name.
 
 ```xml
 <Button Content="Open">
