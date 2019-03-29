@@ -69,6 +69,16 @@ namespace Eleve
             ViewModel.ExecuteCommand(name, param);
         }
         /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="param"></param>
+        protected void ExecuteCommand<T>(object param = null) where T : IActionCommand
+        {
+            string name = typeof(T).Name;
+            ExecuteCommand(name, param);
+        }
+        /// <summary>
         /// <summary>
         /// 
         /// </summary>
