@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
@@ -45,5 +46,41 @@ namespace Eleve
                 threadSafeHandler(this, e);
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="storage"></param>
+        /// <param name="value"></param>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
+        protected virtual bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
+		{
+			if (EqualityComparer<T>.Default.Equals(storage, value)) return false;
+
+			storage = value;
+			RaisePropertyChanged(propertyName);
+
+			return true;
+		}
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="storage"></param>
+        /// <param name="value"></param>
+        /// <param name="onChanged"></param>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
+	    protected virtual bool SetProperty<T>(ref T storage, T value, Action onChanged, [CallerMemberName] string propertyName = null)
+		{
+			if (EqualityComparer<T>.Default.Equals(storage, value)) return false;
+
+			storage = value;
+			onChanged?.Invoke();
+			RaisePropertyChanged(propertyName);
+
+			return true;
+		}
     }
 }
