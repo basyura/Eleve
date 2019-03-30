@@ -50,7 +50,7 @@
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="Eleve">
-      <HintPath>..\packages\Eleve.0.1.0\lib\net45\Eleve.dll</HintPath>
+      <HintPath>..\packages\Eleve.0.1.3\lib\net45\Eleve.dll</HintPath>
     </Reference>
 	</ItemGroup>
 	<ItemGroup>

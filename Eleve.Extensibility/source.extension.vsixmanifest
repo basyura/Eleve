@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="Eleve.Extensibility.e3b533e5-6190-429a-9097-fa81608ef0b0" Version="0.1.2" Language="en-US" Publisher="basyura" />
+        <Identity Id="Eleve.Extensibility.e3b533e5-6190-429a-9097-fa81608ef0b0" Version="0.1.3" Language="en-US" Publisher="basyura" />
         <DisplayName>Eleve.Extensibility</DisplayName>
         <Description xml:space="preserve">Eleve ProjectTemplate ItemTemplateEleve .
 Eleve is OreOre MVVM Framework.
