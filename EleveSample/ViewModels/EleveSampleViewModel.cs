@@ -17,9 +17,7 @@ namespace EleveSample.ViewModels
         private string _Message;
         public string Message {
             get { return _Message; }
-            set { _Message = value;
-                  RaisePropertyChanged();
-            }
+            set { SetProperty(ref _Message, value); }
         }
         /// <summary>
         /// 
@@ -27,9 +25,7 @@ namespace EleveSample.ViewModels
         private Visibility _PersonVisibility = Visibility.Collapsed;
         public Visibility PersonVisibility {
             get { return _PersonVisibility; }
-            set { _PersonVisibility = value;
-                  RaisePropertyChanged(); 
-            }
+            set { SetProperty(ref _PersonVisibility, value); }
         }
 
         /// <summary>
@@ -38,9 +34,7 @@ namespace EleveSample.ViewModels
         private ObservableCollection<Person> _Persons;
         public ObservableCollection<Person> Persons {
             get { return _Persons; }
-            set { _Persons = value;
-                  RaisePropertyChanged();
-            }
+            set { SetProperty(ref _Persons, value); }
         }
         /// <summary>
         /// 
@@ -48,9 +42,7 @@ namespace EleveSample.ViewModels
         public long _SelectedPersonID;
         public long SelectedPersonID {
             get { return _SelectedPersonID; }
-            set { _SelectedPersonID = value;
-                  RaisePropertyChanged();
-            }
+            set { SetProperty(ref _SelectedPersonID, value); }
         }
         /// <summary>
         /// 
@@ -58,9 +50,7 @@ namespace EleveSample.ViewModels
         public string _SelectedPersonName;
         public string SelectedPersonName {
             get { return _SelectedPersonName; }
-            set { _SelectedPersonName = value;
-                  RaisePropertyChanged();
-            }
+            set { SetProperty(ref _SelectedPersonName, value); }
         }
     }
 }

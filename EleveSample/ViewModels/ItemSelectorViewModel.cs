@@ -10,9 +10,7 @@ namespace EleveSample.ViewModels
         private string _ID;
         public string ID {
             get { return _ID; }
-            set { _ID = value;
-                  RaisePropertyChanged();
-            }
+            set { SetProperty(ref _ID, value); }
         }
     }
 }
