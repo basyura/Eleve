@@ -37,7 +37,7 @@ namespace Eleve.Test
                     Assert.Fail();
                 }
 
-                if (!string.IsNullOrEmpty(result.Message))
+                if (result.Message != "ViewModel not found.")
                 {
                     Assert.Fail();
                 }

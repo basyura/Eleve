@@ -110,6 +110,17 @@ namespace Eleve
                     Exception ex = v.Exception.InnerException;
                     // todo
                     MessageBox.Show(ex.Message);
+                    return;
+                }
+
+                switch (v.Result.Status)
+                {
+                    case ActionStatus.ViewModelNotFound:
+                    case ActionStatus.ActionNotFound:
+                        MessageBox.Show(v.Result.Message);
+                        break;
+                    default:
+                        break;
                 }
             });
         }
@@ -131,7 +142,7 @@ namespace Eleve
                 var vm = AssociateWithViewModel();
                 if (vm == null)
                 {
-                    return new ActionResult(ActionStatus.ViewModelNotFound);
+                    return new ActionResult(ActionStatus.ViewModelNotFound) { Message = "ViewModel not found." };
                 }
 
                 string clazz = BuildClassName(vm);
