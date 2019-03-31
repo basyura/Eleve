@@ -128,13 +128,21 @@ namespace Eleve
             }
             else
             {
-                command = NewCommand();
+                var vm = AssociateWithViewModel();
+                if (vm == null)
+                {
+                    return new ActionResult(ActionStatus.ViewModelNotFound);
+                }
+
+                string clazz = BuildClassName(vm);
+                command = NewCommand(vm, clazz);
+                // コマンドがなかった場合は何もしない
+                if (command == null)
+                {
+                    return new ActionResult(ActionStatus.CommandNotFound) { Message = clazz + " not found" };
+                }
             }
-            // コマンドがなかった場合は何もしない
-            if (command == null)
-            {
-                return new ActionResult(ActionStatus.Success);
-            }
+
             // キャッシュ対象の場合
             if (Cache)
             {
@@ -160,7 +168,7 @@ namespace Eleve
         /// 
         /// </summary>
         /// <returns></returns>
-        private IActionCommand NewCommand()
+        private ViewModelBase AssociateWithViewModel()
         {
             // セットされていない場合は Window から取る
             if (ViewModel == null && AssociatedObject != null)
@@ -171,30 +179,41 @@ namespace Eleve
                     ViewModel = window.DataContext as ViewModelBase;
                 }
             }
-            // 無い場合は終了
-            if (ViewModel == null)
-            {
-                MessageBox.Show("ViewModel not found");
-                return null;
-            }
+
+            return ViewModel;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        private string BuildClassName(ViewModelBase vm)
+        {
             // 呼び出し対象のクラス名を生成
-            Type   vmType = ViewModel.GetType();
+            Type   vmType = vm.GetType();
             string dir    = vmType.Name.Replace("ViewModel", "");
             string name   = vmType.FullName;
             string clazz  = string.Format("{0}Actions.{1}.{2}", name.Substring(0, name.IndexOf("ViewModels")), dir, Action);
+
+            return clazz;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        private IActionCommand NewCommand(ViewModelBase vm, string clazz)
+        {
             // アセンブリを取得
-            Assembly asm = Assembly.GetAssembly(ViewModel.GetType());
+            Assembly asm = Assembly.GetAssembly(vm.GetType());
             // アクションクラスを取得
             Type type = asm.GetType(clazz);
             if (type == null)
             {
-                MessageBox.Show(clazz + " not found.");
                 return null;
             }
             // インスタンス生成
             IActionCommand action = Activator.CreateInstance(type) as IActionCommand;
             // 初期化
-            action.Initialize(ViewModel);
+            action.Initialize(vm);
 
             return action;
         }

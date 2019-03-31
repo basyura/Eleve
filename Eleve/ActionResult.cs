@@ -12,5 +12,7 @@
         }
         /// <summary></summary>
         public ActionStatus Status { get; private set; }
+        /// <summary></summary>
+        public string Message { get; set; }
     }
 }

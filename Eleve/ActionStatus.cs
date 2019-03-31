@@ -3,6 +3,8 @@
     public enum ActionStatus
     {
         Success = 0,
-        CommandNotFound = 1,
+
+        ViewModelNotFound = 100,
+        CommandNotFound = 101,
     }
 }
