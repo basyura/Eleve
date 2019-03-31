@@ -89,6 +89,15 @@ namespace Eleve
             Invoke(parameter);
         }
         /// <summary>
+        /// 隠しコマンド
+        /// </summary>
+        /// <param name="parameter"></param>
+        public async Task<ActionResult> __InvokeAsync__(object parameter)
+        {
+            ActionResult ret = await InvokeAsync(parameter);
+            return ret;
+        }
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="parameter"></param>
@@ -108,7 +117,7 @@ namespace Eleve
         /// 
         /// </summary>
         /// <param name="parameter"></param>
-        private async Task InvokeAsync(object parameter)
+        private async Task<ActionResult> InvokeAsync(object parameter)
         {
             var total = Stopwatch.StartNew();
             // 対象コマンドの生成
@@ -124,7 +133,7 @@ namespace Eleve
             // コマンドがなかった場合は何もしない
             if (command == null)
             {
-                return;
+                return new ActionResult(ActionStatus.Success);
             }
             // キャッシュ対象の場合
             if (Cache)
@@ -138,6 +147,7 @@ namespace Eleve
             try
             {
                 ActionResult result = await command.Execute(AssociatedObject, parameter as EventArgs, ActionParameter);
+                return result;
             }
             finally
             {
@@ -145,7 +155,6 @@ namespace Eleve
                 total.Stop();
                 Logger.Log(LogLevel, "Execute > {0} - {1}/{2}", command, atime.Elapsed.TotalMilliseconds, total.Elapsed.TotalMilliseconds);
             }
-
         }
         /// <summary>
         /// 
@@ -154,7 +163,7 @@ namespace Eleve
         private IActionCommand NewCommand()
         {
             // セットされていない場合は Window から取る
-            if (ViewModel == null)
+            if (ViewModel == null && AssociatedObject != null)
             {
                 Window window = Window.GetWindow(AssociatedObject);
                 if (window != null)
