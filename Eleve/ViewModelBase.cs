@@ -24,7 +24,7 @@ namespace Eleve
         internal void Initialize(ViewBase view)
         {
             View = view;
-            View.Closed += view_Closed;
+            View.Closed += View_Closed;
         }
         /// <summary>
         /// 
@@ -58,14 +58,11 @@ namespace Eleve
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void view_Closed(object sender, EventArgs e)
+        void View_Closed(object sender, EventArgs e)
         {
-            View.Closed -= view_Closed;
+            View.Closed -= View_Closed;
             // 明示的に ActionBase#CloseWindow した場合は null クリアされる
-            if (CloseWindowAction != null)
-            {
-                CloseWindowAction(WindowCloseType.Close , null);
-            }
+            CloseWindowAction?.Invoke(WindowCloseType.Close, null);
             Dispose();
         }
         /// <summary>
