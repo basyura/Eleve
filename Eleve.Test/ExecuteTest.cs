@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using EleveTest.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -10,22 +11,18 @@ namespace Eleve.Test
         [TestMethod]
         public void ActionInvokeTest()
         {
-            TaskCompletionSource<ActionResult> source = new TaskCompletionSource<ActionResult>();
-
-            new TaskFactory().StartNew(async () =>
+            Invoke(new EleveTestViewModel(), "Hello", (result) => 
             {
-                Execute execute = new Execute()
+                if (result.Status != ActionStatus.Success)
                 {
-                    ViewModel = new EleveTestViewModel(),
-                    Action = "Hello",
-                };
-                source.SetResult(await execute.__InvokeAsync__(null));
-            });
+                    Assert.Fail();
+                }
 
-            if (source.Task.Result.Status != ActionStatus.Success)
-            {
-                Assert.Fail();
-            }
+                if (!string.IsNullOrEmpty(result.Message))
+                {
+                    Assert.Fail();
+                }
+            });
         }
         /// <summary>
         /// 
@@ -33,21 +30,18 @@ namespace Eleve.Test
         [TestMethod]
         public void ViewModelNotFoundTest()
         {
-            TaskCompletionSource<ActionResult> source = new TaskCompletionSource<ActionResult>();
-
-            new TaskFactory().StartNew(async () =>
+            Invoke(null, "Hello", (result) =>
             {
-                Execute execute = new Execute()
+                if (result.Status != ActionStatus.ViewModelNotFound)
                 {
-                    Action = "Hello",
-                };
-                source.SetResult(await execute.__InvokeAsync__(null));
-            });
+                    Assert.Fail();
+                }
 
-            if (source.Task.Result.Status == ActionStatus.Success)
-            {
-                Assert.Fail();
-            }
+                if (!string.IsNullOrEmpty(result.Message))
+                {
+                    Assert.Fail();
+                }
+            });
         }
         /// <summary>
         /// 
@@ -55,22 +49,40 @@ namespace Eleve.Test
         [TestMethod]
         public void ActionNotFoundTest()
         {
+            Invoke(new EleveTestViewModel(), "Hello2", (result) =>
+            {
+                if (result.Status != ActionStatus.ActionNotFound)
+                {
+                    Assert.Fail();
+                }
+
+                if (result.Message != "EleveTest.Actions.EleveTest.Hello2 not found.")
+                {
+                    Assert.Fail();
+                }
+            });
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="vm"></param>
+        /// <param name="action"></param>
+        /// <param name="assert"></param>
+        private void Invoke(ViewModelBase vm, string action, Action<ActionResult> assert)
+        {
             TaskCompletionSource<ActionResult> source = new TaskCompletionSource<ActionResult>();
 
             new TaskFactory().StartNew(async () =>
             {
                 Execute execute = new Execute()
                 {
-                    ViewModel = new EleveTestViewModel(),
-                    Action = "Hello2",
+                    ViewModel = vm,
+                    Action = action,
                 };
                 source.SetResult(await execute.__InvokeAsync__(null));
             });
 
-            if (source.Task.Result.Status == ActionStatus.Success)
-            {
-                Assert.Fail();
-            }
+            assert(source.Task.Result);
         }
     }
 }

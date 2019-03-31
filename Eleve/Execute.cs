@@ -139,7 +139,7 @@ namespace Eleve
                 // コマンドがなかった場合は何もしない
                 if (command == null)
                 {
-                    return new ActionResult(ActionStatus.CommandNotFound) { Message = clazz + " not found" };
+                    return new ActionResult(ActionStatus.ActionNotFound) { Message = clazz + " not found." };
                 }
             }
 

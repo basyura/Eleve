@@ -5,6 +5,6 @@
         Success = 0,
 
         ViewModelNotFound = 100,
-        CommandNotFound = 101,
+        ActionNotFound = 101,
     }
 }
