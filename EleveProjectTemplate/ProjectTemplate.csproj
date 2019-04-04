@@ -55,9 +55,9 @@
 	</ItemGroup>
 	<ItemGroup>
     <None Include="App.config" />
-    <None Include="App.xaml.cs">
+    <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-    </None>
+    </Compile>
 		<Compile Include="ViewModels\$safeprojectname$ViewModel.cs" />
 		<Compile Include="Actions\$safeprojectname$\$safeprojectname$ActionBase.cs" />
 		<Compile Include="Actions\$safeprojectname$\Initialize.cs" />

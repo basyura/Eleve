@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EleveSample
+namespace EleveSample.Views
 {
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック
