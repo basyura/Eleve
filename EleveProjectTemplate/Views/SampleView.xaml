@@ -1,4 +1,4 @@
-﻿<ev:ViewBase x:Class="$safeprojectname$.$safeprojectname$View"
+﻿<ev:ViewBase x:Class="$safeprojectname$.Views.$safeprojectname$View"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
