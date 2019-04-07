@@ -6,7 +6,7 @@ namespace $safeprojectname$.Actions.$safeprojectname$
 {
     public class Hello : $safeprojectname$ActionBase
     {
-        public override Task<ActionResult> Execute(object sender, EventArgs e, object obj)
+        public override Task<ActionResult> Execute(object sender, EventArgs args, object obj)
         {
             ViewModel.Message = "World";
 

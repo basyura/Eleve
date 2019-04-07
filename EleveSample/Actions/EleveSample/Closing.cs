@@ -8,13 +8,13 @@ namespace EleveSample.Actions.EleveSample
 {
     public class Closing : EleveSampleActionBase
     {
-        public override async Task<ActionResult> Execute(object sender, EventArgs e, object obj)
+        public override async Task<ActionResult> Execute(object sender, EventArgs args, object obj)
         {
             if (ViewModel.IsTerminating)
             {
                 return Success;
             }
-            CancelEventArgs evnt = e as CancelEventArgs;
+            CancelEventArgs evnt = args as CancelEventArgs;
             evnt.Cancel = true;
 
             bool result = await Task.Run(() =>

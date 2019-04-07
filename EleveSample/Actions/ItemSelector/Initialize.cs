@@ -7,7 +7,7 @@ namespace EleveSample.Actions.ItemSelector
 {
     public class Initialize : ItemSelectorActionBase
     {
-        public override Task<ActionResult> Execute(object sender, EventArgs e, object obj)
+        public override Task<ActionResult> Execute(object sender, EventArgs args, object obj)
         {
             ViewModel.ID = ((Dictionary<string, object>)obj)["ID"] as string;
 

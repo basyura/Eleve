@@ -9,7 +9,7 @@ namespace EleveSample.Actions.EleveSample
 {
     public class Initialize : EleveSampleActionBase
     {
-        public override Task<ActionResult> Execute(object sender, EventArgs evnt, object parameter)
+        public override Task<ActionResult> Execute(object sender, EventArgs args, object parameter)
         {
             ViewModel.Message = "Initialized";
 

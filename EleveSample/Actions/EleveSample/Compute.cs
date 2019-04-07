@@ -11,9 +11,9 @@ namespace EleveSample.Actions.EleveSample
         /// MVVM でもできるんだけど，恐れずに View にアクセスするサンプル。
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="evnt"></param>
+        /// <param name="args"></param>
         /// <param name="parameter"></param>
-        public override Task<ActionResult> Execute(object sender, EventArgs evnt, object parameter)
+        public override Task<ActionResult> Execute(object sender, EventArgs args, object parameter)
         {
             if (!decimal.TryParse(GetElement<TextBox>("ComputeA").Text, out decimal arga))
             {

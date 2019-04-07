@@ -8,10 +8,10 @@ namespace EleveSample.Actions.EleveSample
 {
     public class TrackMouse : EleveSampleActionBase
     {
-        public override Task<ActionResult> Execute(object sender, EventArgs evnt, object parameter)
+        public override Task<ActionResult> Execute(object sender, EventArgs args, object parameter)
         {
-            MouseEventArgs args = evnt as MouseEventArgs;
-            Point point = args.GetPosition((UIElement)sender);
+            MouseEventArgs evnt = args as MouseEventArgs;
+            Point point = evnt.GetPosition((UIElement)sender);
             ViewModel.Message = string.Format("{0}, {1}", point.X, point.Y);
             ViewModel.Counter ++;
 

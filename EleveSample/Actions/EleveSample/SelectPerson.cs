@@ -9,15 +9,15 @@ namespace EleveSample.Actions.EleveSample
 {
     public class SelectPerson : EleveSampleActionBase
     {
-        public override Task<ActionResult> Execute(object sender, EventArgs evnt, object parameter)
+        public override Task<ActionResult> Execute(object sender, EventArgs args, object parameter)
         {
-            SelectionChangedEventArgs args = evnt as SelectionChangedEventArgs;
+            SelectionChangedEventArgs evnt = args as SelectionChangedEventArgs;
             // 取れない場合は終了
-            if (args.AddedItems == null || args.AddedItems.Count == 0)
+            if (evnt.AddedItems == null || evnt.AddedItems.Count == 0)
             {
                 return SuccessTask;
             }
-            Person person = args.AddedItems[0] as Person;
+            Person person = evnt.AddedItems[0] as Person;
             // 取れない場合がある
             if (person == null)
             {

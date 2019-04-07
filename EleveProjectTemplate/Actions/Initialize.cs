@@ -8,7 +8,7 @@ namespace $safeprojectname$.Actions.$safeprojectname$
 {
     public class Initialize : $safeprojectname$ActionBase
     {
-        public override Task<ActionResult> Execute(object sender, EventArgs evnt, object parameter)
+        public override Task<ActionResult> Execute(object sender, EventArgs args, object parameter)
         {
             return SuccessTask;
         }

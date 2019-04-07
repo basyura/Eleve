@@ -8,7 +8,7 @@ namespace EleveSample.Actions.EleveSample
 {
     public class OpenItemSelector : EleveSampleActionBase
     {
-        public override Task<ActionResult> Execute(object sender, EventArgs e, object obj)
+        public override Task<ActionResult> Execute(object sender, EventArgs args, object obj)
         {
             Dictionary<string, object> param = new Dictionary<string, object> {
                 { "ID", "0000000001" }

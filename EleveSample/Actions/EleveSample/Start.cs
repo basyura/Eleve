@@ -6,7 +6,7 @@ namespace EleveSample.Actions.EleveSample
 {
     public class Start : EleveSampleActionBase
     {
-        public override Task<ActionResult> Execute(object sender, EventArgs evnt, object parameter)
+        public override Task<ActionResult> Execute(object sender, EventArgs args, object parameter)
         {
             ViewModel.Counter = 0;
 

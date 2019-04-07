@@ -24,7 +24,7 @@ namespace Eleve
         /// <summary>
         /// 
         /// </summary>
-        public abstract Task<ActionResult> Execute(object sender, EventArgs e, object obj);
+        public abstract Task<ActionResult> Execute(object sender, EventArgs args, object obj);
         /// <summary>
         /// 
         /// </summary>
