@@ -4,6 +4,8 @@ namespace Eleve
 {
     public class ViewBase : Window
     {
+        /// <summary></summary>
+        private bool _isInitialized = false;
         /// <summary>
         /// 
         /// </summary>
@@ -11,10 +13,15 @@ namespace Eleve
         {
         }
         /// <summary>
+        /// 
         /// </summary>
         public override void OnApplyTemplate()
         {
-            ((ViewModelBase)this.DataContext).Initialize(this);
+            if (!_isInitialized)
+            {
+                ((ViewModelBase)this.DataContext).Initialize(this);
+                _isInitialized = true;
+            }
             base.OnApplyTemplate();
         }
     }
