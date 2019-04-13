@@ -79,7 +79,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Eleve.snk" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Views\SampleView.xaml.cs">
       <DependentUpon>SampleView.xaml</DependentUpon>
     </None>
