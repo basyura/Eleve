@@ -60,7 +60,7 @@ namespace Eleve
         }
         // Using a DependencyProperty as the backing store for MethodParameter.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ActionParameterProperty =
-            DependencyProperty.Register("MethodParameter", typeof(object), typeof(Execute), new PropertyMetadata(null, OnActionParameterChanged));
+            DependencyProperty.Register("ActionParameter", typeof(object), typeof(Execute), new PropertyMetadata(null, OnActionParameterChanged));
         /// <summary>
         /// 
         /// </summary>

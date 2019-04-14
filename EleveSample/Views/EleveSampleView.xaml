@@ -4,7 +4,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:ev="clr-namespace:Eleve;assembly=Eleve"
         xmlns:vm="clr-namespace:EleveSample.ViewModels"
-        Title="MainWindow" Height="350" Width="525">
+        Title="EleveSample" Height="350" Width="525">
     
     <ev:ViewBase.DataContext>
         <vm:EleveSampleViewModel />
@@ -32,12 +32,40 @@
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <DataGrid ItemsSource="{Binding Persons}" MinWidth="50" IsReadOnly="True" SelectionUnit="FullRow" SelectionMode="Single">
+            <DataGrid ItemsSource="{Binding Persons}" MinWidth="50" IsReadOnly="True" SelectionUnit="FullRow" SelectionMode="Single" AutoGenerateColumns="False" CanUserAddRows="False">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
                         <ev:Execute Action="SelectPerson" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ID}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" >
+                                    <TextBlock.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="Delete">
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="Click">
+                                                        <ev:Execute Action="Delete" ActionParameter="{Binding}" />
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </MenuItem>
+                                        </ContextMenu>
+                                    </TextBlock.ContextMenu>
+                                </TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
             </DataGrid>
             <Grid Grid.Column="1" Visibility="{Binding PersonVisibility}">
                 <Grid.RowDefinitions>
