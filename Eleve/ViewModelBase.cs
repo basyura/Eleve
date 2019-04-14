@@ -61,8 +61,13 @@ namespace Eleve
         void View_Closed(object sender, EventArgs e)
         {
             View.Closed -= View_Closed;
-            // 明示的に ActionBase#CloseWindow した場合は null クリアされる
-            CloseWindowAction?.Invoke(WindowCloseType.Close, null);
+            // 明示的に ActionBase#CloseWindow した場合は null クリア済み
+            if (CloseWindowAction != null)
+            {
+                CloseWindowAction(WindowCloseType.Close, null);
+                CloseWindowAction = null;
+            }
+
             Dispose();
         }
         /// <summary>
