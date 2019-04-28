@@ -92,10 +92,46 @@ namespace Eleve
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="parameter"></param>
+        protected Task<WindowCloseResult> OpenDialogWindowAsync<T>(object parameter = null) where T : ViewBase, new()
+        {
+            return OpenAsync<T>(parameter, true);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="parameter"></param>
         /// <param name="callBack"></param>
         protected void OpenWindow<T>(object parameter = null, Action<WindowCloseType, object> callBack = null) where T : ViewBase, new()
         {
             OpenWindow<T>(parameter, callBack, false);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
+        protected Task<WindowCloseResult> OpenWindowAsync<T>(object parameter = null) where T : ViewBase, new()
+        {
+            return OpenAsync<T>(parameter, false);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="parameter"></param>
+        /// <param name="isDialog"></param>
+        /// <returns></returns>
+        private Task<WindowCloseResult> OpenAsync<T>(object parameter, bool isDialog) where T : ViewBase, new()
+        {
+            TaskCompletionSource<WindowCloseResult> source = new TaskCompletionSource<WindowCloseResult>();
+
+            OpenWindow<T>(parameter, (type, obj) => {
+                source.SetResult(new WindowCloseResult(type, obj));
+            } , isDialog);
+
+            return source.Task;
         }
         /// <summary>
         /// 
