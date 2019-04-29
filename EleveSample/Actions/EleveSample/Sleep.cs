@@ -12,6 +12,8 @@ namespace EleveSample.Actions.EleveSample
         {
             Thread.Sleep(5000);
 
+            ViewModel.Message = "BG Sleep end";
+
             return SuccessTask;
         }
     }
