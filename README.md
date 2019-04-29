@@ -66,20 +66,50 @@ Determined by ViewModel's name, namespace and Action name.
 
 Open ItemSelectorView with param and callback.
 
-```xml
+```csharp
 OpenDialogWindow<ItemSelectorView>(param, (type, ret) => {
   ViewModel.Message = type.ToString() + " - " + ret;
 });
  
 ```
 
+Open ItemSelectorView with param and await.
+
+```csharp
+WindowCloseResult ret = await OpenDialogWindowAsync<ItemSelectorView>(param);
+ViewModel.Message = ret.Type.ToString() + " - " + ret.Result;
+```
+
 Close ItemSlectorView and notify param.
 
 
-```xml
+```csharp
 CloseWindow(WindowCloseType.OK, ViewModel.ID);
 ```
 
+## ThreadMode
+
+Default mode is Foreground (in UI Thread). You can change to Background by class attribute.
+
+```csharp
+[ThreadMode(ThreadMode.Background)]
+public class Initialize : EleveSampleActionBase
+{
+
+```
+
+If you want to change default mode from Foreground to Background in app, add setting to App.config.
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  ・・・
+  <appSettings>
+    <add key= "Eleve.ThreadMode" value="Background"/>
+  </appSettings>
+　・・・
+</configuration>
+```
 
 ## License
 
