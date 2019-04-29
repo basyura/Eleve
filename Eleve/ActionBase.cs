@@ -141,6 +141,11 @@ namespace Eleve
         /// <param name="callBack"></param>
         private void OpenWindow<T>(object parameter, Action<WindowCloseType, object> callBack, bool isDialog) where T : ViewBase, new()
         {
+            if (!Application.Current.Dispatcher.CheckAccess())
+            {
+                throw new Exception("You must add class attribute [ThreadMode(ThreadMode.Foreground)] to " + this.GetType().Name);
+            }
+
             T view = new T()
             {
                 Owner = ViewModel.View

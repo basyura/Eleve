@@ -58,6 +58,7 @@
     <Compile Include="Actions\EleveSample\Error.cs" />
     <Compile Include="Actions\EleveSample\OpenItemSelector.cs" />
     <Compile Include="Actions\EleveSample\OpenItemSelectorAsync.cs" />
+    <Compile Include="Actions\EleveSample\Sleep.cs" />
     <Compile Include="Actions\ItemSelector\Initialize.cs" />
     <Compile Include="Actions\ItemSelector\ItemSelectorActionBase.cs" />
     <Compile Include="Actions\ItemSelector\Notify.cs" />

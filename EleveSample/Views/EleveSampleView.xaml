@@ -133,6 +133,14 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Button>
+            <Button Width="50" Height="50" Margin="10">
+                <TextBlock Text="BG Sleep" TextWrapping="Wrap" />
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <ev:Execute Action="Sleep" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
         </StackPanel>
         <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="10">
             <TextBox Name="ComputeA" Width="60" TextAlignment="Right" >

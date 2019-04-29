@@ -33,6 +33,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml" />
     <Reference Include="WindowsBase" />
@@ -48,6 +49,8 @@
     <Compile Include="Log\LogLevel.cs" />
     <Compile Include="NotificationObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThreadMode.cs" />
+    <Compile Include="ThreadModeAttribute.cs" />
     <Compile Include="ViewBase.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="WindowCloseResult.cs" />

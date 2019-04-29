@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Diagnostics;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -165,8 +166,24 @@ namespace Eleve
             // Action 呼び出し
             try
             {
-                ActionResult result = await command.Execute(AssociatedObject, parameter as EventArgs, ActionParameter);
-                return result;
+                object sourceObj = AssociatedObject;
+                object actParam = ActionParameter;
+
+                if (IsBackground(command))
+                {
+                    TaskCompletionSource<ActionResult> source = new TaskCompletionSource<ActionResult>();
+                    await Task.Run(async () =>
+                    {
+                        ActionResult result = await command.Execute(sourceObj, parameter as EventArgs, actParam);
+                        source.SetResult(result);
+                    });
+                    return source.Task.Result;
+                }
+                else
+                {
+                    ActionResult result = await command.Execute(sourceObj, parameter as EventArgs, actParam);
+                    return result;
+                }
             }
             finally
             {
@@ -227,6 +244,22 @@ namespace Eleve
             action.Initialize(vm);
 
             return action;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        private bool IsBackground(IActionCommand command)
+        {
+            ThreadModeAttribute attr = Attribute.GetCustomAttribute(command.GetType(), typeof(ThreadModeAttribute)) as ThreadModeAttribute;
+            if (attr == null)
+            {
+                string mode = ConfigurationManager.AppSettings["Eleve.ThreadMode"];
+                return mode == "Background";
+            }
+
+            return attr.ThreadMode == ThreadMode.Background;
         }
     }
 }
