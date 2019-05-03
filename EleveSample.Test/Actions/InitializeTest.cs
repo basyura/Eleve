@@ -6,12 +6,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace EleveSample.Test.Actions
 {
     [TestClass]
-    public class InitializeTest : ActionTestBase
+    public class InitializeTest : ActionTestBase<EleveSampleViewModel>
     {
         [TestMethod]
         public void ExecuteTest()
         {
-            Invoke<Initialize, EleveSampleViewModel>((ret, vm) => {
+            Invoke<Initialize>((ret, vm) => {
                 Assert.AreEqual(ret.Status, ActionStatus.Success);
                 Assert.AreEqual(vm.Persons.Count, 50);
             });

@@ -19,17 +19,24 @@ namespace EleveSample.Actions.EleveSample
 
             bool result = await Task.Run(() =>
             {
-                Thread.Sleep(1000);
+                Thread.Sleep(100);
                 return true;
             });
 
             if (result)
             {
                 ViewModel.IsTerminating = true;
-                App.Current.Shutdown();
+                ShutDown();
             }
 
             return Success;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        protected virtual void ShutDown()
+        {
+            App.Current.Shutdown();
         }
     }
 }

@@ -10,7 +10,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace EleveSample.Test.Actions
 {
     [TestClass]
-    public class SelectPersonTest : ActionTestBase
+    public class SelectPersonTest : ActionTestBase<EleveSampleViewModel>
     {
         [TestMethod]
         public void ExecuteSelectPerson()
@@ -21,7 +21,7 @@ namespace EleveSample.Test.Actions
                 new List<Person> { new Person { ID = 100, Name = "Hoge" } }
             );
 
-            Invoke<SelectPerson, EleveSampleViewModel>(args, (ret, vm) =>
+            Invoke<SelectPerson>(args, (ret, vm) =>
             {
                 Assert.AreEqual(ret.Status, ActionStatus.Success);
                 Assert.AreEqual(vm.PersonVisibility, Visibility.Visible);

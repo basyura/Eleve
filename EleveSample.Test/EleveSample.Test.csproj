@@ -49,6 +49,7 @@
     <Compile Include="Actions\ShowMessageTest.cs" />
     <Compile Include="Actions\HelloTest.cs" />
     <Compile Include="Actions\SelectPersonTest.cs" />
+    <Compile Include="Actions\ClosingTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
