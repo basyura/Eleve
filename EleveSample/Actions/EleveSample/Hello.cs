@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Eleve;
 
@@ -12,8 +13,9 @@ namespace EleveSample.Actions.EleveSample
 
             await Task.Run(() => {
 
-                System.Threading.Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 ViewModel.Message += " Wait";
+                Thread.Sleep(1000);
 
             });
 

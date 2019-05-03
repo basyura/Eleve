@@ -6,15 +6,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace EleveSample.Test.Actions
 {
     [TestClass]
-    public class ShowMessageTest
+    public class ShowMessageTest : ActionTestBase
     {
         [TestMethod]
         public void ExecuteTest()
         {
-            var a = new ShowMessageOK();
-            a.Initialize(new EleveSampleViewModel());
-            a.Execute(null, null, null);
-            Assert.AreEqual(a.ViewModel.Message, "OK");
+            Invoke<ShowMessageOK, EleveSampleViewModel>((ret, vm) =>
+            {
+                Assert.AreEqual(vm.Message, "OK");
+            });
         }
         /// <summary>
         /// 
