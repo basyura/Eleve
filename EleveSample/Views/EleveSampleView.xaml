@@ -25,6 +25,7 @@
             <RowDefinition Height="50" />
             <RowDefinition Height="auto" />
             <RowDefinition />
+            <RowDefinition />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <Grid>
@@ -142,7 +143,16 @@
                 </i:Interaction.Triggers>
             </Button>
         </StackPanel>
-        <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="10">
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Message" Width="50" Height="50" Margin="10" FontSize="10">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <ev:Execute Action="ShowMessage" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Orientation="Horizontal" Margin="10">
             <TextBox Name="ComputeA" Width="60" TextAlignment="Right" >
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="TextChanged">
