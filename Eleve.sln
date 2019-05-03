@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eleve.Extensibility", "Elev
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eleve.Test", "Eleve.Test\Eleve.Test.csproj", "{A8AF9AC4-F8EB-4D92-A1A9-70AE74E5CC24}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EleveSample.Test", "EleveSample.Test\EleveSample.Test.csproj", "{1EC95027-C7D6-495F-8F44-06BF641D94B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A8AF9AC4-F8EB-4D92-A1A9-70AE74E5CC24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8AF9AC4-F8EB-4D92-A1A9-70AE74E5CC24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8AF9AC4-F8EB-4D92-A1A9-70AE74E5CC24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EC95027-C7D6-495F-8F44-06BF641D94B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EC95027-C7D6-495F-8F44-06BF641D94B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EC95027-C7D6-495F-8F44-06BF641D94B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EC95027-C7D6-495F-8F44-06BF641D94B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

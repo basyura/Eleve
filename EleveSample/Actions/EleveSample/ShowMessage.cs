@@ -9,7 +9,7 @@ namespace EleveSample.Actions.EleveSample
     {
         public override Task<ActionResult> Execute(object sender, EventArgs args, object obj)
         {
-            MessageBoxResult res = MessageBox.Show("hello", "select", MessageBoxButton.OKCancel);
+            MessageBoxResult res = ShowMessageBox();
 
             if (res == MessageBoxResult.OK)
             {
@@ -21,6 +21,14 @@ namespace EleveSample.Actions.EleveSample
             }
 
             return SuccessTask;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        protected virtual MessageBoxResult ShowMessageBox()
+        {
+            return MessageBox.Show("hello", "select", MessageBoxButton.OKCancel);
         }
     }
 }
