@@ -14,7 +14,7 @@ namespace EleveSample.Test.Actions
         /// <param name="assert"></param>
         protected void Invoke<A>(Action<ActionResult, V> assert) where A : ActionBase<V> , new()
         {
-            Invoke<A>(null, assert);
+            Invoke<A>(new V(), null, null, null, assert);
         }
         /// <summary>
         /// 
@@ -24,9 +24,54 @@ namespace EleveSample.Test.Actions
         /// <param name="assert"></param>
         protected void Invoke<A>(EventArgs args, Action<ActionResult, V> assert) where A : ActionBase<V> , new()
         {
+            Invoke<A>(new V(), null, args, null, assert);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="A"></typeparam>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        /// <param name="obj"></param>
+        /// <param name="assert"></param>
+        protected void Invoke<A>(object sender, EventArgs args, object obj, Action<ActionResult, V> assert) where A : ActionBase<V> , new()
+        {
+            Invoke<A>(new V(), sender, args, obj, assert);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="A"></typeparam>
+        /// <param name="vm"></param>
+        /// <param name="args"></param>
+        /// <param name="assert"></param>
+        protected void Invoke<A>(V vm, Action<ActionResult, V> assert) where A : ActionBase<V> , new()
+        {
+            Invoke<A>(vm, null, null, null, assert);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="A"></typeparam>
+        /// <param name="vm"></param>
+        /// <param name="args"></param>
+        /// <param name="assert"></param>
+        protected void Invoke<A>(V vm, EventArgs args, Action<ActionResult, V> assert) where A : ActionBase<V> , new()
+        {
+            Invoke<A>(vm, null, args, null, assert);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="A"></typeparam>
+        /// <param name="vm"></param>
+        /// <param name="args"></param>
+        /// <param name="assert"></param>
+        protected void Invoke<A>(V vm, object sender, EventArgs args, object obj, Action<ActionResult, V> assert) where A : ActionBase<V> , new()
+        {
             var a = new A();
-            a.Initialize(new V());
-            var ret = a.Execute(null, args, null);
+            a.Initialize(vm);
+            var ret = a.Execute(sender, args, obj);
             assert(ret.Result, a.ViewModel);
         }
         /// <summary>

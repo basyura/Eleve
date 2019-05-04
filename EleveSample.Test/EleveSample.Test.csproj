@@ -45,11 +45,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\ActionTestBase.cs" />
+    <Compile Include="Actions\ComputeTest.cs" />
+    <Compile Include="Actions\DeleteTest.cs" />
     <Compile Include="Actions\InitializeTest.cs" />
     <Compile Include="Actions\ShowMessageTest.cs" />
     <Compile Include="Actions\HelloTest.cs" />
     <Compile Include="Actions\SelectPersonTest.cs" />
     <Compile Include="Actions\ClosingTest.cs" />
+    <Compile Include="Actions\SleepTest.cs" />
+    <Compile Include="Actions\StartTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
