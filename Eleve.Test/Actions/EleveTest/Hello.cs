@@ -12,7 +12,7 @@ namespace EleveTest.Actions.EleveTest
     {
         public override Task<ActionResult> Execute(object sender, EventArgs e, object obj)
         {
-            return SuccessTask;
+            return OK;
         }
     }
 }

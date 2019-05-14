@@ -17,7 +17,7 @@ namespace EleveSample.Actions.EleveSample
             WindowCloseResult ret = await OpenDialogWindowAsync<ItemSelectorView>(param);
             ViewModel.Message = ret.Type.ToString() + " - " + ret.Result??ToString();
 
-            return Success;
+            return ActionResult.OK;
         }
     }
 }

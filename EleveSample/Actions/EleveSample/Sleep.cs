@@ -14,7 +14,7 @@ namespace EleveSample.Actions.EleveSample
 
             ViewModel.Message = "BG Sleep end";
 
-            return SuccessTask;
+            return OK;
         }
     }
 }

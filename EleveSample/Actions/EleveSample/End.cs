@@ -10,7 +10,7 @@ namespace EleveSample.Actions.EleveSample
         {
             ViewModel.Message = ViewModel.Counter.ToString();
 
-            return SuccessTask;
+            return OK;
         }
     }
 }

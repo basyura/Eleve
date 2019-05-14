@@ -2,7 +2,7 @@
 {
     public enum ActionStatus
     {
-        Success = 0,
+        OK = 200,
 
         ViewModelNotFound = 100,
         ActionNotFound = 101,

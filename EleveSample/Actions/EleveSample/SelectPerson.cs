@@ -15,20 +15,20 @@ namespace EleveSample.Actions.EleveSample
             // 取れない場合は終了
             if (evnt.AddedItems == null || evnt.AddedItems.Count == 0)
             {
-                return SuccessTask;
+                return OK;
             }
             Person person = evnt.AddedItems[0] as Person;
             // 取れない場合がある
             if (person == null)
             {
-                return SuccessTask;
+                return OK;
             }
 
             ViewModel.PersonVisibility   = Visibility.Visible;
             ViewModel.SelectedPersonID   = person.ID;
             ViewModel.SelectedPersonName = person.Name;
 
-            return SuccessTask;
+            return OK;
         }
     }
 }

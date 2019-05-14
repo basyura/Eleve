@@ -11,7 +11,7 @@ namespace EleveSample.Actions.ItemSelector
         {
             ViewModel.ID = ((Dictionary<string, object>)obj)["ID"] as string;
 
-            return SuccessTask;
+            return OK;
         }
     }
 }

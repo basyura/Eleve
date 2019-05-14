@@ -12,8 +12,9 @@ namespace EleveSample.Actions.EleveSample
         {
             if (ViewModel.IsTerminating)
             {
-                return Success;
+                return ActionResult.OK;
             }
+
             CancelEventArgs evnt = args as CancelEventArgs;
             evnt.Cancel = true;
 
@@ -29,7 +30,7 @@ namespace EleveSample.Actions.EleveSample
                 ShutDown();
             }
 
-            return Success;
+            return ActionResult.OK;
         }
         /// <summary>
         /// 

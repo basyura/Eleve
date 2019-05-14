@@ -10,6 +10,10 @@
         {
             Status = status;
         }
+
+        /// <summary></summary>
+        public static ActionResult OK { get { return new ActionResult(ActionStatus.OK); } }
+
         /// <summary></summary>
         public ActionStatus Status { get; private set; }
         /// <summary></summary>

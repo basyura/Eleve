@@ -18,7 +18,7 @@ namespace EleveSample.Actions.EleveSample
                 ViewModel.Message = type.ToString() + " - " + ret;
             });
 
-            return SuccessTask;
+            return OK;
         }
     }
 }

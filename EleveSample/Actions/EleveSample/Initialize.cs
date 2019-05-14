@@ -22,7 +22,7 @@ namespace EleveSample.Actions.EleveSample
                 };
             }));
 
-            return SuccessTask;
+            return OK;
         }
     }
 }

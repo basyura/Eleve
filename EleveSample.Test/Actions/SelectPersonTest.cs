@@ -23,7 +23,7 @@ namespace EleveSample.Test.Actions
 
             Invoke<SelectPerson>(args, (ret, vm) =>
             {
-                Assert.AreEqual(ret.Status, ActionStatus.Success);
+                Assert.AreEqual(ret.Status, ActionStatus.OK);
                 Assert.AreEqual(vm.PersonVisibility, Visibility.Visible);
                 Assert.AreEqual(vm.SelectedPersonID, 100);
                 Assert.AreEqual(vm.SelectedPersonName, "Hoge");

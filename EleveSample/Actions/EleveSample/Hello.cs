@@ -21,7 +21,7 @@ namespace EleveSample.Actions.EleveSample
 
             ViewModel.Message += " World";
 
-            return Success;
+            return ActionResult.OK;
         }
     }
 }

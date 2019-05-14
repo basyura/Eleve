@@ -13,7 +13,7 @@ namespace EleveSample.Actions.EleveSample
 
             ViewModel.Persons.Remove(person);
 
-            return SuccessTask;
+            return OK;
         }
     }
 }

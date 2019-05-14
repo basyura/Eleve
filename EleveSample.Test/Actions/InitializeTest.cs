@@ -12,7 +12,7 @@ namespace EleveSample.Test.Actions
         public void ExecuteTest()
         {
             Invoke<Initialize>((ret, vm) => {
-                Assert.AreEqual(ret.Status, ActionStatus.Success);
+                Assert.AreEqual(ret.Status, ActionStatus.OK);
                 Assert.AreEqual(vm.Persons.Count, 50);
             });
         }

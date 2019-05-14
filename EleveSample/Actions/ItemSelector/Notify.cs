@@ -10,7 +10,7 @@ namespace EleveSample.Actions.ItemSelector
         {
             CloseWindow(WindowCloseType.OK, ViewModel.ID);
 
-            return SuccessTask;
+            return OK;
         }
     }
 }

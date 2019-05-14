@@ -10,7 +10,7 @@ namespace EleveSample.Actions.EleveSample
         {
             ViewModel.Message = "This window has become 'Active'";
 
-            return SuccessTask;
+            return OK;
         }
     }
 }

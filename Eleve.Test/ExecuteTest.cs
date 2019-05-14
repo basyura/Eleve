@@ -13,7 +13,7 @@ namespace Eleve.Test
         {
             Invoke(new EleveTestViewModel(), "Hello", (result) => 
             {
-                if (result.Status != ActionStatus.Success)
+                if (result.Status != ActionStatus.OK)
                 {
                     Assert.Fail();
                 }

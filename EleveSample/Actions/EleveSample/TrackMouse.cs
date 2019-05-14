@@ -15,7 +15,7 @@ namespace EleveSample.Actions.EleveSample
             ViewModel.Message = string.Format("{0}, {1}", point.X, point.Y);
             ViewModel.Counter ++;
 
-            return SuccessTask;
+            return OK;
         }
     }
 }

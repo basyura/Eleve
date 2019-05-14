@@ -17,19 +17,19 @@ namespace EleveSample.Actions.EleveSample
         {
             if (!decimal.TryParse(GetElement<TextBox>("ComputeA").Text, out decimal arga))
             {
-                return SuccessTask;
+                return OK;
             }
 
             if (!decimal.TryParse(GetElement<TextBox>("ComputeB").Text, out decimal argb))
             {
-                return SuccessTask;
+                return OK;
             }
 
             GetElement<TextBlock>("ComputeResult", (ele) => {
                 ele.Text = (arga + argb).ToString();
             });
 
-            return SuccessTask;
+            return OK;
         } 
     }
 }

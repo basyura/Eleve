@@ -28,16 +28,9 @@ namespace Eleve
         /// <summary>
         /// 
         /// </summary>
-        protected Task<ActionResult> SuccessTask
+        protected Task<ActionResult> OK
         {
-            get {  return Task.Run(() => new ActionResult(ActionStatus.Success)); }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        protected ActionResult Success
-        {
-            get {  return new ActionResult(ActionStatus.Success); }
+            get {  return Task.Run(() => new ActionResult(ActionStatus.OK)); }
         }
         /// <summary>
         /// 
