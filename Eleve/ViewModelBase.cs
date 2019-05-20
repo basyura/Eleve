@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -16,6 +17,8 @@ namespace Eleve
         public Window   View { get; set; }
         /// <summary></summary>
         internal Action<WindowCloseType, object> CloseWindowAction { get; set; }
+        /// <summary></summary>
+        internal Dictionary<string, Stack<FrameworkElement>> Frames = new Dictionary<string, Stack<FrameworkElement>>();
         /// <summary>
         /// 
         /// </summary>

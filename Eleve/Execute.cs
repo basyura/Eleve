@@ -201,6 +201,26 @@ namespace Eleve
             // セットされていない場合は Window から取る
             if (ViewModel == null && AssociatedObject != null)
             {
+
+                DependencyObject dep = AssociatedObject as DependencyObject;
+                FrameworkElement ele = dep as FrameworkElement;
+                if (ele != null && ele.DataContext is ViewModelBase)
+                {
+                    ViewModel = ele.DataContext as ViewModelBase;
+                    return ViewModel;
+                }
+
+                while(dep != null)
+                {
+                    dep = LogicalTreeHelper.GetParent(dep);
+                    ele = dep as FrameworkElement;
+                    if (ele != null && ele.DataContext is ViewModelBase)
+                    {
+                        ViewModel = ele.DataContext as ViewModelBase;
+                        return ViewModel;
+                    }
+                }
+
                 Window window = Window.GetWindow(AssociatedObject);
                 if (window != null)
                 {

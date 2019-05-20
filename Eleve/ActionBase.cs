@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using Eleve.Log;
 
 namespace Eleve
@@ -108,6 +110,55 @@ namespace Eleve
         protected Task<WindowCloseResult> OpenWindowAsync<T>(object parameter = null) where T : ViewBase, new()
         {
             return OpenAsync<T>(parameter, false);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="FrameworkElement"></typeparam>
+        /// <param name="content"></param>
+        protected void Navigate<T>(string containerContentName, bool addCache = false) where T : FrameworkElement, new()
+        {
+            T view = new T();
+
+            ContentControl content = GetElement<ContentControl>(containerContentName);
+            content.Content = view;
+
+            ViewModelBase vm = ((ViewModelBase)view.DataContext);
+            vm.View = ViewModel.View;
+
+            if (addCache)
+            {
+                var rootVM = (ViewModelBase)ViewModel.View.DataContext;
+                if (!rootVM.Frames.ContainsKey(containerContentName))
+                {
+                    rootVM.Frames[containerContentName] = new Stack<FrameworkElement>();
+                }
+                rootVM.Frames[containerContentName].Push(view);
+            }
+
+            // 呼び出し
+            vm.ExecuteCommand("Initialize");
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="containerContentName"></param>
+        /// <returns></returns>
+        protected bool NavigateBack(string containerContentName)
+        {
+            var rootVM = (ViewModelBase)ViewModel.View.DataContext;
+            var frames = rootVM.Frames[containerContentName];
+
+            if (frames == null || frames.Count == 0)
+            {
+                return false;
+            }
+
+            FrameworkElement ele = frames.Pop();
+            ContentControl content = GetElement<ContentControl>(containerContentName);
+            content.Content = ele;
+
+            return true;
         }
         /// <summary>
         /// 

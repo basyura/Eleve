@@ -57,6 +57,7 @@
     <Compile Include="Actions\EleveSample\Closing.cs" />
     <Compile Include="Actions\EleveSample\Delete.cs" />
     <Compile Include="Actions\EleveSample\Error.cs" />
+    <Compile Include="Actions\EleveSample\NavigateSubView.cs" />
     <Compile Include="Actions\EleveSample\OpenItemSelector.cs" />
     <Compile Include="Actions\EleveSample\OpenItemSelectorAsync.cs" />
     <Compile Include="Actions\EleveSample\ShowMessage.cs" />
@@ -64,8 +65,22 @@
     <Compile Include="Actions\ItemSelector\Initialize.cs" />
     <Compile Include="Actions\ItemSelector\ItemSelectorActionBase.cs" />
     <Compile Include="Actions\ItemSelector\Notify.cs" />
+    <Compile Include="Actions\UserDetail\Back.cs" />
+    <Compile Include="Actions\UserDetail\Initialize.cs" />
+    <Compile Include="Actions\UserDetail\UserDetailActionBase.cs" />
+    <Compile Include="Actions\User\Initialize.cs" />
+    <Compile Include="Actions\User\NavigateDetail.cs" />
+    <Compile Include="Actions\User\UserActionBase.cs" />
+    <Compile Include="ViewModels\UserDetailViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="Views\ItemSelectorView.xaml.cs">
       <DependentUpon>ItemSelectorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserDetailView.xaml.cs">
+      <DependentUpon>UserDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserView.xaml.cs">
+      <DependentUpon>UserView.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\EleveSampleView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -91,6 +106,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\ItemSelectorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -135,6 +158,7 @@
       <Version>2.0.20525</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

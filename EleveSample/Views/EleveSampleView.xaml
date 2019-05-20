@@ -4,7 +4,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:ev="clr-namespace:Eleve;assembly=Eleve"
         xmlns:vm="clr-namespace:EleveSample.ViewModels"
-        Title="EleveSample" Height="350" Width="525">
+        Title="EleveSample" Height="400" Width="525">
     
     <ev:ViewBase.DataContext>
         <vm:EleveSampleViewModel />
@@ -14,9 +14,11 @@
         <i:EventTrigger EventName="ContentRendered">
             <ev:Execute Action="Initialize" />
         </i:EventTrigger>
+        <!--
         <i:EventTrigger EventName="Activated">
             <ev:Execute Action="Activated" />
         </i:EventTrigger>
+        -->
         <i:EventTrigger EventName="Closing">
             <ev:Execute Action="Closing" />
         </i:EventTrigger>
@@ -30,6 +32,7 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition Height="auto" />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -154,6 +157,13 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Button>
+            <Button Content="SubView" Width="50" Height="50" Margin="10" FontSize="10">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <ev:Execute Action="NavigateSubView" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
         </StackPanel>
         <StackPanel Grid.Row="5" Orientation="Horizontal" Margin="10">
             <TextBox Name="ComputeA" Width="60" TextAlignment="Right" >
@@ -176,5 +186,7 @@
                 <TextBlock Name="ComputeResult" VerticalAlignment="Center" TextAlignment="Right" />
             </Border>
         </StackPanel>
+        <ContentControl Grid.Row="6" Name="FrameContent">
+        </ContentControl>
     </Grid>
 </ev:ViewBase>
