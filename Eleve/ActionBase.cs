@@ -116,7 +116,7 @@ namespace Eleve
         /// </summary>
         /// <typeparam name="FrameworkElement"></typeparam>
         /// <param name="content"></param>
-        protected void Navigate<T>(string containerContentName, bool addCache = false) where T : FrameworkElement, new()
+        protected void Navigate<T>(string containerContentName, object param = null) where T : FrameworkElement, new()
         {
             T view = new T();
 
@@ -126,19 +126,10 @@ namespace Eleve
             ViewModelBase vm = ((ViewModelBase)view.DataContext);
             vm.View = ViewModel.View;
 
-            if (addCache)
-            {
-                var rootVM = (ViewModelBase)ViewModel.View.DataContext;
-                if (!rootVM.Frames.ContainsKey(containerContentName))
-                {
-                    rootVM.Frames[containerContentName] = new Stack<FrameworkElement>();
-                }
-                rootVM.Frames[containerContentName].Push(view);
-            }
-
             // 呼び出し
-            vm.ExecuteCommand("Initialize");
+            vm.ExecuteCommand("Initialize", param);
         }
+        /*
         /// <summary>
         /// 
         /// </summary>
@@ -160,6 +151,7 @@ namespace Eleve
 
             return true;
         }
+        */
         /// <summary>
         /// 
         /// </summary>

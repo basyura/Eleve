@@ -8,11 +8,11 @@ using EleveSample.Views;
 
 namespace EleveSample.Actions.User
 {
-    public class NavigateDetail : UserActionBase
+    public class NavigateToDetail : UserActionBase
     {
         public override Task<ActionResult> Execute(object sender, EventArgs args, object obj)
         {
-            Navigate<UserDetailView>("FrameContent");
+            Navigate<UserDetailView>("FrameContent", new Dictionary<string, object> { { "Sample", "Parameter" } });
 
 
             return OK;

@@ -11,7 +11,7 @@ namespace EleveSample.Actions.EleveSample
     {
         public override Task<ActionResult> Execute(object sender, EventArgs args, object obj)
         {
-            Navigate<UserView>("FrameContent", true);
+            Navigate<UserView>("FrameContent");
 
             return OK;
         }

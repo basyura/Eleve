@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Eleve;
+using EleveSample.Views;
 
 namespace EleveSample.Actions.UserDetail
 {
@@ -11,7 +12,7 @@ namespace EleveSample.Actions.UserDetail
     {
         public override Task<ActionResult> Execute(object sender, EventArgs args, object obj)
         {
-            NavigateBack("FrameContent");
+            Navigate<UserView>("FrameContent");
 
             return OK;
         }

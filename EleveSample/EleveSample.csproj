@@ -69,7 +69,7 @@
     <Compile Include="Actions\UserDetail\Initialize.cs" />
     <Compile Include="Actions\UserDetail\UserDetailActionBase.cs" />
     <Compile Include="Actions\User\Initialize.cs" />
-    <Compile Include="Actions\User\NavigateDetail.cs" />
+    <Compile Include="Actions\User\NavigateToDetail.cs" />
     <Compile Include="Actions\User\UserActionBase.cs" />
     <Compile Include="ViewModels\UserDetailViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />

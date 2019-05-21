@@ -17,10 +17,10 @@
     <Grid>
         <StackPanel>
             <TextBlock Text="User View" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            <Button Content="Detail">
+            <Button Content="Navigate to Detail">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click" >
-                        <ev:Execute Action="NavigateDetail" />
+                        <ev:Execute Action="NavigateToDetail" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Button>
