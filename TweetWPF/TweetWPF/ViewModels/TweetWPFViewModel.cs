@@ -7,14 +7,6 @@ namespace TweetWPF.ViewModels
 {
     public class TweetWPFViewModel : ViewModelBase
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        public TweetWPFViewModel()
-        {
-            BindingOperations.EnableCollectionSynchronization(_Tweets, new object());
-            BindingOperations.EnableCollectionSynchronization(_Mentions, new object());
-        }
         /// <summary></summary>
         public string Title
         {
@@ -45,22 +37,6 @@ namespace TweetWPF.ViewModels
         {
             get { return _TweetText; }
             set { SetProperty(ref _TweetText, value); }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        private ObservableCollection<ITweet> _Tweets = new ObservableCollection<ITweet>();
-        public ObservableCollection<ITweet> Tweets
-        {
-            get { return _Tweets; }
-            set { SetProperty(ref _Tweets, value); }
-        }
-        /// <summary></summary>
-        private ObservableCollection<ITweet> _Mentions = new ObservableCollection<ITweet>();
-        public ObservableCollection<ITweet> Mentions
-        {
-            get { return _Mentions; }
-            set { SetProperty(ref _Mentions, value); }
         }
         /// <summary></summary>
         public bool IsTweetEnabled

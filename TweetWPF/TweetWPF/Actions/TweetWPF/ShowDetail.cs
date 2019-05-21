@@ -11,6 +11,7 @@ namespace TweetWPF.Actions.TweetWPF
     {
         public override Task<ActionResult> Execute(object sender, EventArgs args, object obj)
         {
+            /*
             if (HasParent<ScrollBar>(args))
             {
                 return OK;
@@ -22,6 +23,7 @@ namespace TweetWPF.Actions.TweetWPF
             {
                 DataContext = ViewModel.SelectedTweet
             });
+            */
 
             return OK;
         }

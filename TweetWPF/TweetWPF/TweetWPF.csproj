@@ -49,6 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Compile Include="Actions\Tweetline\Initialize.cs" />
+    <Compile Include="Actions\Tweetline\Reload.cs" />
+    <Compile Include="Actions\Tweetline\TImelineActionBase.cs" />
     <Compile Include="Actions\TweetWPF\BackToTimeline.cs" />
     <Compile Include="Actions\TweetWPF\PostTweet.cs" />
     <Compile Include="Actions\TweetWPF\Reload.cs" />
@@ -68,6 +71,7 @@
     <Compile Include="Controls\TimelineView.xaml.cs">
       <DependentUpon>TimelineView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\TweetlineViewModel.cs" />
     <Compile Include="ViewModels\TweetWPFViewModel.cs" />
     <Compile Include="Actions\TweetWPF\TweetWPFActionBase.cs" />
     <Compile Include="Actions\TweetWPF\Initialize.cs" />
@@ -94,9 +98,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Eleve">
-      <Version>0.4.0</Version>
-    </PackageReference>
     <PackageReference Include="System.Windows.Interactivity.WPF">
       <Version>2.0.20525</Version>
     </PackageReference>
@@ -104,7 +105,12 @@
       <Version>4.0.0</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Eleve\Eleve.csproj">
+      <Project>{73464c5a-d051-4875-b3bc-82816d7dba8e}</Project>
+      <Name>Eleve</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

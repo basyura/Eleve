@@ -41,7 +41,17 @@ namespace Eleve
 
         // Using a DependencyProperty as the backing store for MethodTarget.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ViewModelProperty =
-            DependencyProperty.Register("ViewModel", typeof(ViewModelBase), typeof(Execute), new PropertyMetadata(null));
+            DependencyProperty.Register("ViewModel", typeof(ViewModelBase), typeof(Execute), new PropertyMetadata(null, OnViewModelChanged));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void OnViewModelChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        {
+            var thisReference = (Execute)sender;
+            thisReference.ViewModel = (ViewModelBase)e.NewValue;
+        }
         /// <summary>
         /// Action をキャッシュする
         /// </summary>
@@ -62,6 +72,7 @@ namespace Eleve
         // Using a DependencyProperty as the backing store for MethodParameter.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ActionParameterProperty =
             DependencyProperty.Register("ActionParameter", typeof(object), typeof(Execute), new PropertyMetadata(null, OnActionParameterChanged));
+
         /// <summary>
         /// 
         /// </summary>

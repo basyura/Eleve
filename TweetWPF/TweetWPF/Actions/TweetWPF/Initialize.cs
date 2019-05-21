@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Eleve;
-using Tweetinvi;
 using Tweetinvi.Models;
+using TweetWPF.Controls;
 
 namespace TweetWPF.Actions.TweetWPF
 {
@@ -29,6 +29,8 @@ namespace TweetWPF.Actions.TweetWPF
             ViewModel.User = user;
             ViewModel.IsReloadEnabled = true;
 
+            BeginInvoke(() => Navigate<TimelineView>("Container"));
+            /*
             IEnumerable<ITweet> tweets = Timeline.GetHomeTimeline();
             if (tweets != null)
             {
@@ -46,6 +48,7 @@ namespace TweetWPF.Actions.TweetWPF
                     ViewModel.Mentions.Add(mention);
                 }
             }
+            */
 
             return OK;
         }
@@ -58,9 +61,9 @@ namespace TweetWPF.Actions.TweetWPF
             string tokenPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".config", "tweetwpf", "token.txt");
             string[] lines = File.ReadAllLines(tokenPath);
 
-            Auth.SetUserCredentials(lines[0], lines[1], lines[2], lines[3]);
+            Tweetinvi.Auth.SetUserCredentials(lines[0], lines[1], lines[2], lines[3]);
 
-            IAuthenticatedUser user = User.GetAuthenticatedUser();
+            IAuthenticatedUser user = Tweetinvi.User.GetAuthenticatedUser();
 
             return user;
         }

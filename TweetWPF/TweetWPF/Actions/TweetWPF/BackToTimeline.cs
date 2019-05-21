@@ -11,6 +11,7 @@ namespace TweetWPF.Actions.TweetWPF
     {
         public override Task<ActionResult> Execute(object sender, EventArgs args, object obj)
         {
+            /*
             DetailView detail = obj as DetailView;
 
             FrameworkElement ele = sender as FrameworkElement;
@@ -24,6 +25,7 @@ namespace TweetWPF.Actions.TweetWPF
                 TimelineView view = ele as TimelineView;
                 view.Remove(detail);
             }
+            */
 
             return OK;
         }

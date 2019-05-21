@@ -7,8 +7,13 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:ev="clr-namespace:Eleve;assembly=Eleve"
              xmlns:conv="clr-namespace:TweetWPF.Controls.Coverters"
+             xmlns:vm="clr-namespace:TweetWPF.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    
+    <UserControl.DataContext>
+        <vm:TweetlineViewModel />
+    </UserControl.DataContext>
     
     <UserControl.Resources>
         <conv:ScreenNameConverter x:Key="ScreenNameConverter" />
@@ -16,60 +21,58 @@
         <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </UserControl.Resources>
 
-    <Grid Name="Container">
-        <DataGrid Name="Timeline" AutoGenerateColumns="False" SelectionMode="Single">
-            <DataGrid.Resources>
-                <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="{x:Static SystemColors.HighlightColor}"/>
-                <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}" Color="{x:Static SystemColors.HighlightTextColor}"/>
-            </DataGrid.Resources>
-            <DataGrid.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="fav" >
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Click">
-                                <ev:Execute Action="SelectTweetMenu" ActionParameter="fav"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </MenuItem>
-                    <MenuItem Header="retweet" >
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Click">
-                                <ev:Execute Action="SelectTweetMenu" ActionParameter="retweet"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </MenuItem>
-                    <MenuItem Header="reply" >
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Click">
-                                <ev:Execute Action="SelectTweetMenu" ActionParameter="reply"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </MenuItem>
-                </ContextMenu>
-            </DataGrid.ContextMenu>
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Header="ScreenName" Width="100" >
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="5">
-                                <TextBlock Text="{Binding CreatedBy.Name }"/>
-                                <TextBlock Text="{Binding CreatedBy.ScreenName, Converter={StaticResource ScreenNameConverter}}" />
-                                <TextBlock Text="{Binding CreatedAt, Converter={StaticResource CreatedAtConverter }}" TextAlignment="Right" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Full Text" Width="*">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="{Binding FullText}" TextWrapping="Wrap" Margin="5"/>
-                                <TextBlock Text="❤" Visibility="{Binding Favorited, Converter={StaticResource BoolToVisibilityConverter}}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>        
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-    </Grid>
+    <DataGrid Name="Timeline" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding Tweets}">
+        <DataGrid.Resources>
+            <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="{x:Static SystemColors.HighlightColor}"/>
+            <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}" Color="{x:Static SystemColors.HighlightTextColor}"/>
+        </DataGrid.Resources>
+        <DataGrid.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="fav" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <ev:Execute Action="SelectTweetMenu" ActionParameter="fav"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+                <MenuItem Header="retweet" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <ev:Execute Action="SelectTweetMenu" ActionParameter="retweet"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+                <MenuItem Header="reply" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <ev:Execute Action="SelectTweetMenu" ActionParameter="reply"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+            </ContextMenu>
+        </DataGrid.ContextMenu>
+        <DataGrid.Columns>
+            <DataGridTemplateColumn Header="ScreenName" Width="100" >
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="5">
+                            <TextBlock Text="{Binding CreatedBy.Name }"/>
+                            <TextBlock Text="{Binding CreatedBy.ScreenName, Converter={StaticResource ScreenNameConverter}}" />
+                            <TextBlock Text="{Binding CreatedAt, Converter={StaticResource CreatedAtConverter }}" TextAlignment="Right" />
+                        </StackPanel>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            <DataGridTemplateColumn Header="Full Text" Width="*">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding FullText}" TextWrapping="Wrap" Margin="5"/>
+                            <TextBlock Text="❤" Visibility="{Binding Favorited, Converter={StaticResource BoolToVisibilityConverter}}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>        
+            </DataGridTemplateColumn>
+        </DataGrid.Columns>
+    </DataGrid>
 </UserControl>

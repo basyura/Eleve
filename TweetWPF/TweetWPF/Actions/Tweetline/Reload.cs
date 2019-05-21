@@ -3,35 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Eleve;
+using Tweetinvi;
 using Tweetinvi.Models;
+using TweetWPF.ViewModels;
 
-namespace TweetWPF.Actions.TweetWPF
+namespace TweetWPF.Actions.Tweetline
 {
-    /*
-    /// <summary>
-    /// 
-    /// </summary>
-    public class Reload : TweetWPFActionBase
+    public class Reload : TweetlineActionBase
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        /// <param name="obj"></param>
-        /// <returns></returns>
         public override Task<ActionResult> Execute(object sender, EventArgs args, object obj)
         {
-            ViewModel.IsReloadEnabled = false;
+            // todo
+            TweetWPFViewModel rootVM = obj as TweetWPFViewModel;
 
-            string header = ViewModel.SelectedTabHeader;
+            rootVM.IsReloadEnabled = false;
 
-            if (header == "Home")
-            {
-                ReloadHomeTimeline();
-            }
+            ReloadHomeTimeline();
 
-            ViewModel.IsReloadEnabled = true;
+            rootVM.IsReloadEnabled = true;
 
             return OK;
         }
@@ -40,7 +29,7 @@ namespace TweetWPF.Actions.TweetWPF
         /// </summary>
         private void ReloadHomeTimeline()
         {
-            IEnumerable<ITweet> tweets = Tweetinvi.Timeline.GetHomeTimeline();
+            IEnumerable<ITweet> tweets = Timeline.GetHomeTimeline();
             if (tweets == null)
             {
                 return;
@@ -65,5 +54,4 @@ namespace TweetWPF.Actions.TweetWPF
             }
         }
     }
-    */
 }

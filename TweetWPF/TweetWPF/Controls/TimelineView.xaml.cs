@@ -66,21 +66,5 @@ namespace TweetWPF.Controls
             get { return (object)GetValue(SelectedItemProperty); }
             set { SetValue(SelectedItemProperty, value); }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="ele"></param>
-        public void Append(FrameworkElement ele)
-        {
-            Container.Children.Add(ele);
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="ele"></param>
-        public void Remove(FrameworkElement ele)
-        {
-            Container.Children.Remove(ele);
-        }
     }
 }

@@ -28,6 +28,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid>
@@ -48,7 +49,14 @@
                 </i:Interaction.Triggers>
             </Button>
         </Grid>
-        <TabControl Grid.Row="1" SelectedValue="{Binding SelectedTabHeader, Converter={StaticResource SelectedTabItemConverter}}">
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button Content=" Home "  />
+            <Button Content=" Mention " />
+        </StackPanel>
+        <ContentControl Grid.Row="2" Name="Container">
+        </ContentControl>
+        <!--
+        <TabControl Grid.Row="2" SelectedValue="{Binding SelectedTabHeader, Converter={StaticResource SelectedTabItemConverter}}">
             <TabItem Header="Home" Height="30">
                 <ctrl:TimelineView ItemsSource="{Binding Tweets}" SelectedItem="{Binding SelectedTweet, Mode=TwoWay}" >
                     <i:Interaction.Triggers>
@@ -62,11 +70,12 @@
                 <ctrl:TimelineView ItemsSource="{Binding Mentions}" SelectedItem="{Binding SelectedTweet, Mode=TwoWay}" />
             </TabItem>
         </TabControl>
+        -->
         <Button Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" Width="43" Height="30"  Margin="0 2 0 0" 
                 Content="Reload" IsEnabled="{Binding IsReloadEnabled}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <ev:Execute Action="Reload" />
+                    <ev:Execute Action="Reload" ViewModel="{Binding ElementName=Container, Path=Content.DataContext}" ActionParameter="{Binding}" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
