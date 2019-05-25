@@ -65,22 +65,22 @@
     <Compile Include="Controls\Coverters\BoolToVisibilityConverter.cs" />
     <Compile Include="Controls\Coverters\ScreenNameConverter.cs" />
     <Compile Include="Controls\Coverters\SelectedTabItemConverter.cs" />
-    <Compile Include="Controls\DetailView.xaml.cs">
-      <DependentUpon>DetailView.xaml</DependentUpon>
+    <Compile Include="Views\TweetDetailView.xaml.cs">
+      <DependentUpon>TweetDetailView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TimelineView.xaml.cs">
-      <DependentUpon>TimelineView.xaml</DependentUpon>
+    <Compile Include="Views\TweetlineView.xaml.cs">
+      <DependentUpon>TweetlineView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\TweetlineViewModel.cs" />
     <Compile Include="ViewModels\TweetWPFViewModel.cs" />
     <Compile Include="Actions\TweetWPF\TweetWPFActionBase.cs" />
     <Compile Include="Actions\TweetWPF\Initialize.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Page Include="Controls\DetailView.xaml">
+    <Page Include="Views\TweetDetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\TimelineView.xaml">
+    <Page Include="Views\TweetlineView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

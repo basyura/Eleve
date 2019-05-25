@@ -2,17 +2,17 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace TweetWPF.Controls
+namespace TweetWPF.Views
 {
     /// <summary>
     /// TimelineView.xaml の相互作用ロジック
     /// </summary>
-    public partial class TimelineView : UserControl
+    public partial class TweetlineView : UserControl
     {
         /// <summary>
         /// 
         /// </summary>
-        public TimelineView()
+        public TweetlineView()
         {
             InitializeComponent();
 
@@ -38,8 +38,8 @@ namespace TweetWPF.Controls
         /// 
         /// </summary>
         public static readonly DependencyProperty ItemsSourceProperty = DependencyProperty.Register(
-            "ItemsSource", typeof(IEnumerable), typeof(TimelineView), new PropertyMetadata(null, (d, e) => {
-                TimelineView view = d as TimelineView;
+            "ItemsSource", typeof(IEnumerable), typeof(TweetlineView), new PropertyMetadata(null, (d, e) => {
+                TweetlineView view = d as TweetlineView;
                 view.Timeline.ItemsSource = e.NewValue as IEnumerable;
             }));
         /// <summary>
@@ -54,8 +54,8 @@ namespace TweetWPF.Controls
         /// 
         /// </summary>
         public static readonly DependencyProperty SelectedItemProperty = DependencyProperty.Register(
-            "SelectedItem", typeof(object), typeof(TimelineView), new PropertyMetadata(null, (d, e) => {
-                TimelineView view = d as TimelineView;
+            "SelectedItem", typeof(object), typeof(TweetlineView), new PropertyMetadata(null, (d, e) => {
+                TweetlineView view = d as TweetlineView;
                 view.Timeline.SelectedItem = e.NewValue;
             }));
         /// <summary>

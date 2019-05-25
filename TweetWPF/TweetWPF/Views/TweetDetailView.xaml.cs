@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TweetWPF.Controls
+namespace TweetWPF.Views
 {
     /// <summary>
     /// DetailView.xaml の相互作用ロジック
     /// </summary>
-    public partial class DetailView : UserControl
+    public partial class TweetDetailView : UserControl
     {
-        public DetailView()
+        public TweetDetailView()
         {
             InitializeComponent();
         }
