@@ -2,28 +2,27 @@
 using System.Threading.Tasks;
 using System.Windows.Controls.Primitives;
 using Eleve;
-using TweetWPF.Controls;
+using TweetWPF.Extensions;
+using TweetWPF.Views;
 
-namespace TweetWPF.Actions.TweetWPF
+namespace TweetWPF.Actions.Tweetline
 {
     [ThreadMode(ThreadMode.Foreground)]
-    public class ShowDetail : TweetWPFActionBase
+    public class ShowDetail : TweetlineActionBase
     {
         public override Task<ActionResult> Execute(object sender, EventArgs args, object obj)
         {
-            /*
-            if (HasParent<ScrollBar>(args))
+            if (args.HasParent<ScrollBar>())
             {
                 return OK;
             }
 
-            TimelineView view = sender as TimelineView;
-
-            view.Append(new DetailView()
+            if (ViewModel.SelectedItem == null)
             {
-                DataContext = ViewModel.SelectedTweet
-            });
-            */
+                return OK;
+            }
+
+            Navigate<TweetDetailView>("Container", ViewModel.SelectedItem);
 
             return OK;
         }

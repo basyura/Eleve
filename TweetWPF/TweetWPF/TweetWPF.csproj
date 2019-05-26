@@ -49,14 +49,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Compile Include="Actions\TweetDetail\Initialize.cs" />
+    <Compile Include="Actions\TweetDetail\TweetDetailActionBase.cs" />
     <Compile Include="Actions\Tweetline\Initialize.cs" />
     <Compile Include="Actions\Tweetline\Reload.cs" />
+    <Compile Include="Actions\Tweetline\ShowDetail.cs" />
     <Compile Include="Actions\Tweetline\TImelineActionBase.cs" />
     <Compile Include="Actions\TweetWPF\BackToTimeline.cs" />
     <Compile Include="Actions\TweetWPF\PostTweet.cs" />
-    <Compile Include="Actions\TweetWPF\Reload.cs" />
     <Compile Include="Actions\TweetWPF\SelectTweetMenu.cs" />
-    <Compile Include="Actions\TweetWPF\ShowDetail.cs" />
+    <Compile Include="Actions\TweetWPF\ShowHome.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -65,6 +67,8 @@
     <Compile Include="Controls\Coverters\BoolToVisibilityConverter.cs" />
     <Compile Include="Controls\Coverters\ScreenNameConverter.cs" />
     <Compile Include="Controls\Coverters\SelectedTabItemConverter.cs" />
+    <Compile Include="Extensions\DependencyObjectExtension.cs" />
+    <Compile Include="ViewModels\TweetDetailViewModel.cs" />
     <Compile Include="Views\TweetDetailView.xaml.cs">
       <DependentUpon>TweetDetailView.xaml</DependentUpon>
     </Compile>

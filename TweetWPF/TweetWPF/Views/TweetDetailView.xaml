@@ -6,34 +6,34 @@
              xmlns:local="clr-namespace:TweetWPF.Controls"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:ev="clr-namespace:Eleve;assembly=Eleve"
+             xmlns:vm="clr-namespace:TweetWPF.ViewModels"
              xmlns:conv="clr-namespace:TweetWPF.Controls.Coverters"
              mc:Ignorable="d" 
              Name="_DetailView"
              d:DesignHeight="600" d:DesignWidth="400">
+    
+    <UserControl.DataContext>
+        <vm:TweetDetailViewModel />
+    </UserControl.DataContext>
+    
     <UserControl.Resources>
         <conv:ScreenNameConverter x:Key="ScreenNameConverter" />
         <conv:CreatedAtConverter x:Key="CreatedAtConverter" />
         <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </UserControl.Resources>
+    
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Button Content="＜＜" Width="40" HorizontalAlignment="Left">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="Click">
-                    <ev:Execute Action="BackToTimeline" ActionParameter="{Binding ElementName=_DetailView}"  />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-        </Button>
         <StackPanel Grid.Row="1" Orientation="Vertical">
             <StackPanel>
-                <TextBlock Text="{Binding CreatedBy.Name }"/>
-                <TextBlock Text="{Binding CreatedBy.ScreenName, Converter={StaticResource ScreenNameConverter}}" />
+                <TextBlock Text="{Binding Tweet.CreatedBy.Name }"/>
+                <TextBlock Text="{Binding Tweet.CreatedBy.ScreenName, Converter={StaticResource ScreenNameConverter}}" />
             </StackPanel>
-            <TextBlock Text="{Binding CreatedAt, Converter={StaticResource CreatedAtConverter }}" TextAlignment="Right" />
-            <TextBlock Text="{Binding FullText}" TextWrapping="Wrap"/>
+            <TextBlock Text="{Binding Tweet.CreatedAt, Converter={StaticResource CreatedAtConverter }}" TextAlignment="Right" />
+            <TextBlock Text="{Binding Tweet.FullText}" TextWrapping="Wrap"/>
         </StackPanel>
     </Grid>
 </UserControl>

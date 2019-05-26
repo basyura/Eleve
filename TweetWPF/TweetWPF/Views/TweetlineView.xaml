@@ -21,7 +21,13 @@
         <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </UserControl.Resources>
 
-    <DataGrid Name="Timeline" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding Tweets}">
+    <DataGrid Name="Timeline" AutoGenerateColumns="False" SelectionMode="Single"
+              ItemsSource="{Binding Tweets}" SelectedItem="{Binding SelectedItem}">
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="MouseDoubleClick">
+                <ev:Execute Action="ShowDetail" />
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
         <DataGrid.Resources>
             <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="{x:Static SystemColors.HighlightColor}"/>
             <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}" Color="{x:Static SystemColors.HighlightTextColor}"/>

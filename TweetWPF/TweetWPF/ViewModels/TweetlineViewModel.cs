@@ -14,6 +14,12 @@ namespace TweetWPF.ViewModels
         {
             BindingOperations.EnableCollectionSynchronization(_Tweets, new object());
         }
+        private ITweet _SelectedItem;
+        public ITweet SelectedItem
+        {
+            get { return _SelectedItem; }
+            set { SetProperty(ref _SelectedItem, value); }
+        }
         /// <summary>
         /// 
         /// </summary>

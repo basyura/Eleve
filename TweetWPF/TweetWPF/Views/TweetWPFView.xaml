@@ -50,7 +50,13 @@
             </Button>
         </Grid>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button Content=" Home "  />
+            <Button Content=" Home "  >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <ev:Execute Action="ShowHome" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
             <Button Content=" Mention " />
         </StackPanel>
         <ContentControl Grid.Row="2" Name="Container">
