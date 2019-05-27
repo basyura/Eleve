@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Data;
 using Eleve;
 using Tweetinvi.Models;
+using TweetWPF.Models;
 
 namespace TweetWPF.ViewModels
 {
@@ -76,8 +77,8 @@ namespace TweetWPF.ViewModels
         /// <summary>
         /// 
         /// </summary>
-        private ObservableCollection<string> _Tabs = new ObservableCollection<string>();
-        public ObservableCollection<string> Tabs
+        private ObservableCollection<TweetTab> _Tabs = new ObservableCollection<TweetTab>();
+        public ObservableCollection<TweetTab> Tabs
         {
             get { return _Tabs; }
             set { SetProperty(ref _Tabs, value); }
@@ -85,8 +86,8 @@ namespace TweetWPF.ViewModels
 
 
         /// <summary></summary>
-        private string _SelectedTabHeader;
-        public string SelectedTabHeader
+        private TweetTab _SelectedTabHeader;
+        public TweetTab SelectedTabHeader
         {
             get { return _SelectedTabHeader; }
             set { SetProperty(ref _SelectedTabHeader, value); }

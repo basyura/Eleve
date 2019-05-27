@@ -50,16 +50,16 @@
         <TabControl Grid.Row="1" ItemsSource="{Binding Tabs}" SelectedValue="{Binding SelectedTabHeader}" Visibility="{Binding TabVisibility}" Height="23" Margin="2 0 0 0">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged">
-                    <ev:Execute Action="ShowHome" />
+                    <ev:Execute Action="ChangeTab" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <Border>
-                        <TextBlock Text="{Binding}"/>
+                        <TextBlock Text="{Binding Header}"/>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonUp">
-                                <ev:Execute Action="ShowHome" />
+                                <ev:Execute Action="ClickTab" />
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </Border>

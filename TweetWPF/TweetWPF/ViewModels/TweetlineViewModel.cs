@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Data;
 using Eleve;
 using Tweetinvi.Models;
@@ -27,6 +28,15 @@ namespace TweetWPF.ViewModels
             get { return _SelectedItem; }
             set { SetProperty(ref _SelectedItem, value); }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        public List<ITweet> HomeTweets { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public List<ITweet> MentionTweets { get; set; }
+
         /// <summary>
         /// 
         /// </summary>

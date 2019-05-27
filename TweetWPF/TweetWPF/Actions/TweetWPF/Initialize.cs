@@ -6,6 +6,7 @@ using Eleve;
 using Tweetinvi;
 using Tweetinvi.Models;
 using TweetWPF.Views;
+using TweetWPF.Models;
 
 namespace TweetWPF.Actions.TweetWPF
 {
@@ -32,9 +33,9 @@ namespace TweetWPF.Actions.TweetWPF
 
             BeginInvoke(() =>
             {
-                ViewModel.Tabs.Add(" Home ");
-                ViewModel.Tabs.Add(" Mention ");
-                NavigateTo<TweetlineView>("Container");
+                ViewModel.Tabs.Add(new TweetTab { Header = " HOME ", Key = "HOME" });
+                ViewModel.Tabs.Add(new TweetTab { Header = " Mention ", Key = "MENTION" });
+                NavigateTo<TweetlineView>("Container", new NavigateParam { Mode = NavigateMode.ChangeTab, Tab = ViewModel.Tabs[0] });
                 ViewModel.TabVisibility = Visibility.Visible;
             });
 

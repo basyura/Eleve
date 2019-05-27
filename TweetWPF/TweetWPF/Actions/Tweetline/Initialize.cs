@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Eleve;
 using Tweetinvi;
 using Tweetinvi.Models;
+using TweetWPF.Models;
 using TweetWPF.ViewModels;
 
 namespace TweetWPF.Actions.Tweetline
@@ -12,13 +14,33 @@ namespace TweetWPF.Actions.Tweetline
     {
         public override Task<ActionResult> Execute(object sender, EventArgs args, object obj)
         {
-            IEnumerable<ITweet> tweets = Timeline.GetHomeTimeline();
-            if (tweets != null)
+            NavigateParam param = obj as NavigateParam;
+
+            if (param.Mode == NavigateMode.ChangeTab)
             {
-                foreach (ITweet tweet in tweets)
+                IEnumerable<ITweet> tweets = new List<ITweet>();
+
+                if (param.Tab.Key == "HOME")
                 {
-                    ViewModel.Tweets.Add(tweet);
+                    if (ViewModel.HomeTweets == null)
+                    {
+                        ViewModel.HomeTweets = new List<ITweet>(Timeline.GetHomeTimeline());
+                    }
+
+                    tweets = ViewModel.HomeTweets;
                 }
+                else if (param.Tab.Key == "MENTION")
+                {
+                    if (ViewModel.MentionTweets == null)
+                    {
+                        ViewModel.MentionTweets = new List<ITweet>(Timeline.GetMentionsTimeline());
+                    }
+
+                    tweets = ViewModel.MentionTweets;
+                }
+
+                ViewModel.Tweets = new ObservableCollection<ITweet>(tweets);
+
             }
 
             // todo
