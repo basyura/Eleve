@@ -53,6 +53,7 @@
     <Compile Include="Actions\TweetDetail\TweetDetailActionBase.cs" />
     <Compile Include="Actions\Tweetline\Initialize.cs" />
     <Compile Include="Actions\Tweetline\Reload.cs" />
+    <Compile Include="Actions\Tweetline\Restore.cs" />
     <Compile Include="Actions\Tweetline\ShowDetail.cs" />
     <Compile Include="Actions\Tweetline\TImelineActionBase.cs" />
     <Compile Include="Actions\TweetWPF\BackToTimeline.cs" />

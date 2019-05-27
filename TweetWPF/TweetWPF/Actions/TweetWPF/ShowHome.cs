@@ -10,7 +10,15 @@ namespace TweetWPF.Actions.TweetWPF
     {
         public override Task<ActionResult> Execute(object sender, EventArgs args, object obj)
         {
-            Navigate<TweetlineView>("Container");
+            if (!ViewModel.IsInitialized)
+            {
+                return OK;
+            }
+
+            string header = ViewModel.SelectedTabHeader;
+
+
+            NavigateToCacheOrDefault<TweetlineView>("Container");
 
             return OK;
         }

@@ -22,7 +22,7 @@
     </UserControl.Resources>
 
     <DataGrid Name="Timeline" AutoGenerateColumns="False" SelectionMode="Single"
-              ItemsSource="{Binding Tweets}" SelectedItem="{Binding SelectedItem}">
+              ItemsSource="{Binding Tweets}" SelectedItem="{Binding SelectedItem}" HorizontalScrollBarVisibility="Disabled">
         <i:Interaction.Triggers>
             <i:EventTrigger EventName="MouseDoubleClick">
                 <ev:Execute Action="ShowDetail" />

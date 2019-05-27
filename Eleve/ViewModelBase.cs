@@ -13,10 +13,6 @@ namespace Eleve
     {
         [NonSerialized]
         private bool _disposed;
-        /// <summary></summary>
-        public Window   View { get; set; }
-        /// <summary></summary>
-        internal Action<WindowCloseType, object> CloseWindowAction { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -27,6 +23,14 @@ namespace Eleve
             View = view;
             View.Closed += View_Closed;
         }
+        /// <summary></summary>
+        public Window   View { get; set; }
+        /// <summary></summary>
+        public virtual bool IsCacheViewOnNavigate { get; }
+        /// <summary></summary>
+        internal Action<WindowCloseType, object> CloseWindowAction { get; set; }
+        /// <summary></summary>
+        internal List<object> NavigationCache { get; } = new List<object>();
         /// <summary>
         /// 
         /// </summary>

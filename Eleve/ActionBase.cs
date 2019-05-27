@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
@@ -116,11 +117,22 @@ namespace Eleve
         /// </summary>
         /// <typeparam name="FrameworkElement"></typeparam>
         /// <param name="content"></param>
-        protected void Navigate<T>(string containerContentName, object param = null) where T : FrameworkElement, new()
+        protected void NavigateTo<T>(string containerContentName, object param = null) where T : FrameworkElement, new()
         {
             T view = new T();
 
             ContentControl content = GetElement<ContentControl>(containerContentName);
+
+            if (content.Content != null)
+            {
+                // Content's ViewModel
+                if (((ViewModelBase)((FrameworkElement)content.Content).DataContext).IsCacheViewOnNavigate)
+                {
+                    // Window's ViewModel
+                    ((ViewModelBase)(ViewModel.View.DataContext)).NavigationCache.Add(content.Content);
+                }
+            }
+
             content.Content = view;
 
             ViewModelBase vm = ((ViewModelBase)view.DataContext);
@@ -128,6 +140,40 @@ namespace Eleve
 
             // 呼び出し
             vm.ExecuteCommand("Initialize", param);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="containerContentName"></param>
+        /// <param name="param"></param>
+        protected void NavigateToCacheOrDefault<T>(string containerContentName, object param = null) where T : FrameworkElement, new()
+        {
+            ViewModelBase vm = ViewModel.View.DataContext as ViewModelBase;
+            T view = vm.NavigationCache.OfType<T>().FirstOrDefault();
+
+            if (view == null)
+            {
+                NavigateTo<T>(containerContentName, param);
+                return;
+            }
+
+
+            ContentControl content = GetElement<ContentControl>(containerContentName);
+
+            if (content.Content != null)
+            {
+                // Content's ViewModel
+                if (((ViewModelBase)((FrameworkElement)content.Content).DataContext).IsCacheViewOnNavigate)
+                {
+                    // Window's ViewModel
+                    ((ViewModelBase)(ViewModel.View.DataContext)).NavigationCache.Add(content.Content);
+                }
+            }
+
+
+            content.Content = view;
+            ((ViewModelBase)(view.DataContext)).ExecuteCommand("Restore", param);
         }
         /*
         /// <summary>

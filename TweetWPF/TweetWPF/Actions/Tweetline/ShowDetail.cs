@@ -22,7 +22,7 @@ namespace TweetWPF.Actions.Tweetline
                 return OK;
             }
 
-            Navigate<TweetDetailView>("Container", ViewModel.SelectedItem);
+            NavigateTo<TweetDetailView>("Container", ViewModel.SelectedItem);
 
             return OK;
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using System.Windows;
 using Eleve;
 using Tweetinvi;
 using Tweetinvi.Models;
@@ -29,26 +30,13 @@ namespace TweetWPF.Actions.TweetWPF
             ViewModel.User = user;
             ViewModel.IsReloadEnabled = true;
 
-            BeginInvoke(() => Navigate<TweetlineView>("Container"));
-            /*
-            IEnumerable<ITweet> tweets = Timeline.GetHomeTimeline();
-            if (tweets != null)
+            BeginInvoke(() =>
             {
-                foreach (ITweet tweet in tweets)
-                {
-                    ViewModel.Tweets.Add(tweet);
-                }
-            }
-
-            IEnumerable<ITweet> mentions = Timeline.GetMentionsTimeline();
-            if (mentions != null)
-            {
-                foreach (ITweet mention in mentions)
-                {
-                    ViewModel.Mentions.Add(mention);
-                }
-            }
-            */
+                ViewModel.Tabs.Add(" Home ");
+                ViewModel.Tabs.Add(" Mention ");
+                NavigateTo<TweetlineView>("Container");
+                ViewModel.TabVisibility = Visibility.Visible;
+            });
 
             return OK;
         }

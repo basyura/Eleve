@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Data;
 using Eleve;
 using Tweetinvi.Models;
@@ -7,6 +8,18 @@ namespace TweetWPF.ViewModels
 {
     public class TweetWPFViewModel : ViewModelBase
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public TweetWPFViewModel()
+        {
+            BindingOperations.EnableCollectionSynchronization(_Tabs, new object());
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool IsInitialized { get; set; }
+
         /// <summary></summary>
         public string Title
         {
@@ -50,6 +63,27 @@ namespace TweetWPF.ViewModels
             get { return _IsReloadEnabled; }
             set { SetProperty(ref _IsReloadEnabled, value); }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private Visibility _TabVisibility = Visibility.Collapsed;
+        public Visibility TabVisibility
+        {
+            get { return _TabVisibility; }
+            set { SetProperty(ref _TabVisibility, value); }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        private ObservableCollection<string> _Tabs = new ObservableCollection<string>();
+        public ObservableCollection<string> Tabs
+        {
+            get { return _Tabs; }
+            set { SetProperty(ref _Tabs, value); }
+        }
+
+
         /// <summary></summary>
         private string _SelectedTabHeader;
         public string SelectedTabHeader

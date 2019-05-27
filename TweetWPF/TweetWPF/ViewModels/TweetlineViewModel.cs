@@ -14,6 +14,13 @@ namespace TweetWPF.ViewModels
         {
             BindingOperations.EnableCollectionSynchronization(_Tweets, new object());
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        public override bool IsCacheViewOnNavigate => true;
+        /// <summary>
+        /// 
+        /// </summary>
         private ITweet _SelectedItem;
         public ITweet SelectedItem
         {

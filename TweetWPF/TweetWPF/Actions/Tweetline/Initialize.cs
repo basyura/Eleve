@@ -1,16 +1,10 @@
 ﻿using System;
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 using Eleve;
-using Tweetinvi.Models;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tweetinvi;
-using Eleve;
+using Tweetinvi.Models;
+using TweetWPF.ViewModels;
 
 namespace TweetWPF.Actions.Tweetline
 {
@@ -26,6 +20,9 @@ namespace TweetWPF.Actions.Tweetline
                     ViewModel.Tweets.Add(tweet);
                 }
             }
+
+            // todo
+            BeginInvoke(() => ((TweetWPFViewModel)(ViewModel.View.DataContext)).IsInitialized = true);
 
             return OK;
         }
