@@ -110,44 +110,11 @@
     <PackageReference Include="System.Windows.Interactivity.WPF">
       <Version>2.0.20525</Version>
     </PackageReference>
+    <PackageReference Include="TweetinviAPI">
+      <Version>4.0.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\tweetinvi\Tweetinvi.Controllers\Tweetinvi.Controllers.csproj">
-      <Project>{ee8acf76-3af5-468d-9fff-b8df9c5994b1}</Project>
-      <Name>Tweetinvi.Controllers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\tweetinvi\Tweetinvi.Core\Tweetinvi.Core.csproj">
-      <Project>{569efe2c-5878-47ef-bb2e-9135d091ab5c}</Project>
-      <Name>Tweetinvi.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\tweetinvi\Tweetinvi.Credentials\Tweetinvi.Credentials.csproj">
-      <Project>{212766b3-d4ea-4917-b2c5-c3b32f3091d3}</Project>
-      <Name>Tweetinvi.Credentials</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\tweetinvi\Tweetinvi.Factories\Tweetinvi.Factories.csproj">
-      <Project>{7859a46c-d10c-4b26-a271-067254fc82c6}</Project>
-      <Name>Tweetinvi.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\tweetinvi\Tweetinvi.Logic\Tweetinvi.Logic.csproj">
-      <Project>{6171b74f-13a2-4c85-87c0-20104b79dda0}</Project>
-      <Name>Tweetinvi.Logic</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\tweetinvi\Tweetinvi.Security\Tweetinvi.Security.csproj">
-      <Project>{61b12a5f-7dab-463a-b9a5-30813760a1e4}</Project>
-      <Name>Tweetinvi.Security</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\tweetinvi\Tweetinvi.Streams\Tweetinvi.Streams.csproj">
-      <Project>{288afb10-ae89-4694-9795-f068976bef10}</Project>
-      <Name>Tweetinvi.Streams</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\tweetinvi\Tweetinvi.WebLogic\Tweetinvi.WebLogic.csproj">
-      <Project>{48c7d818-427d-41c9-a0a7-e375964df2f4}</Project>
-      <Name>Tweetinvi.WebLogic</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\tweetinvi\Tweetinvi\Tweetinvi.csproj">
-      <Project>{21bb7455-819f-45bc-9452-605bd5a0bce9}</Project>
-      <Name>Tweetinvi</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Eleve\Eleve.csproj">
       <Project>{73464c5a-d051-4875-b3bc-82816d7dba8e}</Project>
       <Name>Eleve</Name>
