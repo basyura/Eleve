@@ -5,12 +5,20 @@ using System.Threading.Tasks;
 using Eleve;
 using Tweetinvi;
 using Tweetinvi.Models;
+using TweetWPF.Models;
 using TweetWPF.ViewModels;
 
 namespace TweetWPF.Actions.Tweetline
 {
     public class Reload : TweetlineActionBase
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override Task<ActionResult> Execute(object sender, EventArgs args, object obj)
         {
             // todo
@@ -18,7 +26,9 @@ namespace TweetWPF.Actions.Tweetline
 
             rootVM.IsReloadEnabled = false;
 
-            ReloadHomeTimeline();
+            TweetTab tab = rootVM.SelectedTabHeader;
+
+            ReloadTimeline(tab);
 
             rootVM.IsReloadEnabled = true;
 
@@ -27,27 +37,37 @@ namespace TweetWPF.Actions.Tweetline
         /// <summary>
         /// 
         /// </summary>
-        private void ReloadHomeTimeline()
+        private void ReloadTimeline(TweetTab tab)
         {
-            IEnumerable<ITweet> tweets = Timeline.GetHomeTimeline();
-            if (tweets == null)
+            IEnumerable<ITweet> tweets = new List<ITweet>();
+            List<ITweet> cache = null;
+
+            if (tab.Key == "HOME")
             {
-                return;
+                tweets = Timeline.GetHomeTimeline();
+                cache = ViewModel.HomeTweets;
             }
-            ITweet last = ViewModel.Tweets.FirstOrDefault();
+            else if (tab.Key == "MENTION")
+            {
+                tweets = Timeline.GetMentionsTimeline();
+                cache = ViewModel.MentionTweets;
+            }
+
+            ITweet last = cache.LastOrDefault();
 
             foreach (ITweet tweet in tweets.Reverse())
             {
                 if (last == null)
                 {
+                    cache.Insert(0, tweet);
                     ViewModel.Tweets.Insert(0, tweet);
                     continue;
                 }
 
                 // todo : retweet
-
                 if (last.CreatedAt < tweet.CreatedAt)
                 {
+                    cache.Insert(0, tweet);
                     ViewModel.Tweets.Insert(0, tweet);
                     continue;
                 }

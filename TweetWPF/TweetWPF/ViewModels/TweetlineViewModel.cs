@@ -31,11 +31,11 @@ namespace TweetWPF.ViewModels
         /// <summary>
         /// 
         /// </summary>
-        public List<ITweet> HomeTweets { get; set; }
+        public List<ITweet> HomeTweets { get; set; } = new List<ITweet>();
         /// <summary>
         /// 
         /// </summary>
-        public List<ITweet> MentionTweets { get; set; }
+        public List<ITweet> MentionTweets { get; set; } = new List<ITweet>();
 
         /// <summary>
         /// 

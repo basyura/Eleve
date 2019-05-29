@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using Eleve;
 using Tweetinvi;
@@ -18,35 +18,43 @@ namespace TweetWPF.Actions.Tweetline
 
             if (param.Mode == NavigateMode.ChangeTab)
             {
-                IEnumerable<ITweet> tweets = new List<ITweet>();
-
-                if (param.Tab.Key == "HOME")
-                {
-                    if (ViewModel.HomeTweets == null)
-                    {
-                        ViewModel.HomeTweets = new List<ITweet>(Timeline.GetHomeTimeline());
-                    }
-
-                    tweets = ViewModel.HomeTweets;
-                }
-                else if (param.Tab.Key == "MENTION")
-                {
-                    if (ViewModel.MentionTweets == null)
-                    {
-                        ViewModel.MentionTweets = new List<ITweet>(Timeline.GetMentionsTimeline());
-                    }
-
-                    tweets = ViewModel.MentionTweets;
-                }
-
-                ViewModel.Tweets = new ObservableCollection<ITweet>(tweets);
-
+                ChangeTab(param);
             }
 
             // todo
             BeginInvoke(() => ((TweetWPFViewModel)(ViewModel.View.DataContext)).IsInitialized = true);
 
             return OK;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="param"></param>
+        private void ChangeTab(NavigateParam param)
+        {
+            IEnumerable<ITweet> tweets = new List<ITweet>();
+
+            if (param.Tab.Key == "HOME")
+            {
+                if (!ViewModel.HomeTweets.Any())
+                {
+                    ViewModel.HomeTweets = new List<ITweet>(Timeline.GetHomeTimeline());
+                }
+
+                tweets = ViewModel.HomeTweets;
+            }
+            else if (param.Tab.Key == "MENTION")
+            {
+                if (!ViewModel.MentionTweets.Any())
+                {
+                    ViewModel.MentionTweets = new List<ITweet>(Timeline.GetMentionsTimeline());
+                }
+
+                tweets = ViewModel.MentionTweets;
+            }
+
+            ViewModel.Tweets.Clear();
+            tweets.ToList().ForEach(v => ViewModel.Tweets.Add(v));
         }
     }
 }
