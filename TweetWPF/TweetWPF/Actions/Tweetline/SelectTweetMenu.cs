@@ -4,9 +4,9 @@ using Eleve;
 using Tweetinvi;
 using Tweetinvi.Models;
 
-namespace TweetWPF.Actions.TweetWPF
+namespace TweetWPF.Actions.Tweetline
 {
-    public class SelectTweetMenu : TweetWPFActionBase
+    public class SelectTweetMenu : TweetlineActionBase
     {
         public override Task<ActionResult> Execute(object sender, EventArgs args, object obj)
         {
@@ -16,7 +16,7 @@ namespace TweetWPF.Actions.TweetWPF
                 return OK;
             }
 
-            ITweet tweet = ViewModel.SelectedTweet;
+            ITweet tweet = ViewModel.SelectedItem;
             if (tweet == null)
             {
                 return OK;

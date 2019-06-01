@@ -59,7 +59,7 @@
     <Compile Include="Actions\TweetWPF\BackToTimeline.cs" />
     <Compile Include="Actions\TweetWPF\ClickTab.cs" />
     <Compile Include="Actions\TweetWPF\PostTweet.cs" />
-    <Compile Include="Actions\TweetWPF\SelectTweetMenu.cs" />
+    <Compile Include="Actions\Tweetline\SelectTweetMenu.cs" />
     <Compile Include="Actions\TweetWPF\ChangeTab.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

@@ -92,12 +92,5 @@ namespace TweetWPF.ViewModels
             get { return _SelectedTabHeader; }
             set { SetProperty(ref _SelectedTabHeader, value); }
         }
-        /// <summary></summary>
-        private ITweet _SelectedTweet;
-        public ITweet SelectedTweet
-        {
-            get { return _SelectedTweet; }
-            set { SetProperty(ref _SelectedTweet, value); }
-        }
     }
 }
